@@ -32,8 +32,8 @@ public class Question_Answer {
     }
     private void fillVector(Vector v) {
         v.add(this.question);
-        v.add(this.correct_ans);
-        v.add(this.wrong_ans);
+        v.add(filter(this.correct_ans));
+        v.add(filter(this.wrong_ans));
     }
     private String  filter(String str){
         String[] splitStr=str.split(" ");
