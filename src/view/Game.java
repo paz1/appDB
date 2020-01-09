@@ -1,19 +1,13 @@
 package view;
 
 import model.GetQuest;
-import model.Model;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.MatteBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.util.List;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -57,7 +51,7 @@ public class Game extends JFrame {
         timeLabel.setForeground(Color.WHITE);
         timeLabel.setFont(new Font("Tahoma", Font.BOLD, height / 20));
         timeLabel.setSize(new Dimension(height / 2, height / 3+40));
-        timeLabel.setLocation(10, 10);
+        timeLabel.setLocation(10, 27);
         timeLabel.setHorizontalAlignment(SwingConstants.CENTER);
         timeLabel.setVerticalAlignment(SwingConstants.CENTER);
         contentPane.add(timeLabel);
@@ -114,7 +108,7 @@ public class Game extends JFrame {
         livesLabel.setForeground(Color.WHITE);
         livesLabel.setFont(new Font("Tahoma", Font.BOLD, height / 20));
         livesLabel.setSize(new Dimension(height / 2, height / 3));
-        livesLabel.setLocation(10, 10);
+        livesLabel.setLocation(10, 18);
         livesLabel.setHorizontalAlignment(SwingConstants.CENTER);
         livesLabel.setVerticalAlignment(SwingConstants.CENTER);
         contentPane.add(livesLabel);
