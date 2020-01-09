@@ -17,7 +17,7 @@ public class GetQuest {
         //v.add("the amazi\n journey");
         //v.add("<html>" + "the amazing<br>journey" + "</html>");
         v.add("tehila");
-        String str="theuofje huigbuo buiviyvyiviy";
+        String str="theuofje huigbuo buiviyvyiviy jjkl";
         String[] splitStr=str.split(" ");
         String ans=("<html>" );
         for (int i=0;i<splitStr.length;i++){
