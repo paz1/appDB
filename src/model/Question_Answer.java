@@ -35,4 +35,14 @@ public class Question_Answer {
         v.add(this.correct_ans);
         v.add(this.wrong_ans);
     }
+    private String  filter(String str){
+        String[] splitStr=str.split(" ");
+        String ans=("<html>" );
+        for (int i=0;i<splitStr.length;i++){
+            ans+=splitStr[i];
+            ans+="<br>";
+        }
+        ans+="</html>";
+        return ans;
+    }
 }

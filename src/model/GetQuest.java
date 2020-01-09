@@ -15,8 +15,17 @@ public class GetQuest {
         v.add("which album the song \"the climb\" belong?");
         //v.add("which is bigger?");
         //v.add("the amazi\n journey");
-        v.add("<html>" + "the amazing<br>journey" + "</html>");
-        v.add("josef");
+        //v.add("<html>" + "the amazing<br>journey" + "</html>");
+        v.add("tehila");
+        String str="theuofje huigbuo buiviyvyiviy";
+        String[] splitStr=str.split(" ");
+        String ans=("<html>" );
+        for (int i=0;i<splitStr.length;i++){
+            ans+=splitStr[i];
+            ans+="<br>";
+        }
+        ans+="</html>";
+        v.add(ans);
     }
 }
 
