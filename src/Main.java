@@ -1,0 +1,37 @@
+import DB.JDBC;
+import model.Question_Answer;
+import model.Make_Info;
+import model.Qusetion_Map;
+
+import java.util.ArrayList;
+import java.util.Random;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        String passwd = "re12ut34";
+        String user="root";
+        String schema="data";
+        JDBC db = new JDBC(user,passwd,"3306",schema);
+        db.connection();
+        Qusetion_Map my_question = Qusetion_Map.getInstance();
+        Random rand = new Random();
+
+        while (true){
+            int db_q = rand.nextInt(my_question.get_size());
+    //        db_q = 2;
+            //String ask = my_question.get_question_to_DB(db_q);
+
+            ArrayList<ArrayList<String>> temp = db.get_ans(db_q);
+            //db.get_info_from_db();
+            Make_Info qq = new Make_Info();
+            Question_Answer a = qq.get_The_Info(db_q,temp);
+            if(a==null){
+                continue;
+            }
+            int x = 5;
+        }
+
+    }
+}
