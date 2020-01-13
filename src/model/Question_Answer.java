@@ -55,9 +55,11 @@ public class Question_Answer {
     private String filterQue(String str){
         String[] splitStr=str.split(" ");
         String ques=("<html>" );
-        for (int i=0;i<splitStr.length;i=i+8){
+        for (int i=0;i<splitStr.length;i++){
             ques+=splitStr[i];
-            ques+="<br>";
+            if (i==8){
+                ques+="<br>";
+            }
         }
         ques+="</html>";
         return ques;
