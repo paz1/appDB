@@ -1,6 +1,8 @@
 package view;
 
 import model.GetQuest;
+import model.Question_Answer;
+import model.queue_question;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -26,18 +28,18 @@ public class Game extends JFrame {
     Color color = new Color(131, 24, 11);
     public static int life;
     public static int score = 0;
-    GetQuest questions;
+    model.queue_question questions;
 
     JPanel contentPane;
     int count;
     JLabel timeLabel = new JLabel(" ");
     java.util.Timer timer = new Timer(true);
 
-    public Game(int numoflife) {
+    public Game(int numoflife, queue_question queue_question) {
         super("quicky");
         count=6;
-        questions = new GetQuest();
-        //questions=new Question_Answer();
+        this.questions=queue_question;
+        //questions = new GetQuest();
         setBackground(color);
         life = numoflife;
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -73,12 +75,12 @@ public class Game extends JFrame {
                         //Component component = (Component) getSource();
                         JFrame frame = new JFrame();
                         int s=score;
-                        Facts f = new Facts(frame, true,s);
+                        Facts f = new Facts(frame, true,s,questions);
                         score=0;
                         f.setVisible(true);
                     }
                     else{
-                        Game g=new Game(life);
+                        Game g=new Game(life,questions);
                         //g.repaint();
                         //g.pack();
                         g.setVisible(true);
@@ -94,6 +96,10 @@ public class Game extends JFrame {
         setContentPane(contentPane);
         contentPane.setLayout(null);
     }
+
+//    public void setQ(Question_Answer questions) {
+//        this.questions = questions;
+//    }
 
     public void runGame() {
         int width = General.width;
@@ -123,17 +129,17 @@ public class Game extends JFrame {
         contentPane.add(scoreLabel);
         //while(true) {
         // todo - call to sheilta. the first ans is correct
-        Vector v = questions.getQ();
+        Question_Answer q = questions.getQ();
         Random rand = new Random();
         int truth = rand.nextInt(2) + 1;
         String leftOpt, rightOpt;
-        leftOpt = v.get(1).toString();
-        rightOpt = v.get(2).toString();
+        leftOpt = q.getCorrect_ans();
+        rightOpt = q.getWrong_ans();
         if (truth == 2) {
-            leftOpt = v.get(2).toString();
-            rightOpt = v.get(1).toString();
+            leftOpt = q.getWrong_ans();
+            rightOpt = q.getCorrect_ans();
         }
-        JLabel messageLabel = new JLabel("<html>" + v.get(0).toString() + "</html>");
+        JLabel messageLabel = new JLabel("<html>" + q.getQuestion() + "</html>");
         messageLabel.setBackground(color);
         messageLabel.setForeground(Color.WHITE);
         messageLabel.setFont(new Font("Tahoma", Font.BOLD, height / 20));
@@ -175,13 +181,14 @@ public class Game extends JFrame {
                         Component component = (Component) arg0.getSource();
                         JFrame frame = (JFrame) SwingUtilities.getRoot(component);
                         int s=score;
-                        Facts f = new Facts(frame, true,s);
+                        Facts f = new Facts(frame, true,s,questions);
                         score=0;
                         f.setVisible(true);
                         return;
                     }
                 }
-                Game g=new Game(life);
+                Game g=new Game(life,questions);
+//                g.setQ(questions);
                 g.setVisible(true);
                 setVisible(false);
                 g.runGame();
@@ -216,14 +223,15 @@ public class Game extends JFrame {
                         Component component = (Component) arg0.getSource();
                         JFrame frame = (JFrame) SwingUtilities.getRoot(component);
                         int s=score;
-                        Facts f = new Facts(frame, true,s);
+                        Facts f = new Facts(frame, true,s,questions);
                         score=0;
                         f.setVisible(true);
                         return;
                     }
                 }
                 //todo move to next q
-                Game g=new Game(life);
+                Game g=new Game(life,questions);
+//                g.setQ(questions);
                 g.setVisible(true);
                 setVisible(false);
                 g.runGame();

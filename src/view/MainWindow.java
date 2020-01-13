@@ -1,5 +1,8 @@
 package view;
 
+import model.Question_Answer;
+import model.queue_question;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -13,28 +16,30 @@ import java.net.URL;
 
 public class MainWindow extends JFrame {
 	Color color = new Color(89,131 ,130);
+	Game g;
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MainWindow frame = new MainWindow();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					MainWindow frame = new MainWindow();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
+
+
 
 	/**
 	 * Create the frame.
 	 */
-	public MainWindow() {
+	public MainWindow(queue_question queue_question) {
 		super("quicky");
-
 		setBackground(color);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		int width = General.width;
@@ -86,7 +91,7 @@ public class MainWindow extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				//Component component = (Component) arg0.getSource();
 				setVisible(false);
-				Game g = new Game(3);
+				g = new Game(3,queue_question);
 				g.setVisible(true);
 				g.runGame();
 			}

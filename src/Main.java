@@ -2,6 +2,8 @@ import DB.JDBC;
 import model.Question_Answer;
 import model.Make_Info;
 import model.Qusetion_Map;
+import model.queue_question;
+import view.View;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -15,6 +17,9 @@ public class Main {
         String schema="data";
         JDBC db = new JDBC(user,passwd,"3306",schema);
         db.connection();
+        queue_question q=new queue_question();
+        View v = new View();
+        v.openWindow(q);
         Qusetion_Map my_question = Qusetion_Map.getInstance();
         Random rand = new Random();
 
@@ -30,6 +35,8 @@ public class Main {
             if(a==null){
                 continue;
             }
+
+            q.add_to_list(a);
             int x = 5;
         }
 

@@ -1,6 +1,8 @@
 package view;
 
 
+import model.queue_question;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.MatteBorder;
@@ -12,7 +14,7 @@ import static java.lang.System.exit;
 
 public class Facts extends JDialog{
     Color color = new Color(131,24 ,11);
-    public Facts(Frame owner, boolean modal,int score) {
+    public Facts(Frame owner, boolean modal, int score, queue_question q) {
         super(owner, modal);
         setBackground(color);
         //int width = General.screenWidth / 3;
@@ -65,7 +67,7 @@ public class Facts extends JDialog{
         menuButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 setVisible(false);
-                MainWindow frame = new MainWindow();
+                MainWindow frame = new MainWindow(q);
                 frame.setVisible(true);
             }
         });

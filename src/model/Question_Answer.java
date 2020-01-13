@@ -6,20 +6,27 @@ public class Question_Answer {
     private String question;
     private String correct_ans;
     private String wrong_ans;
+    private String good_to_know;
 
 
-    public Question_Answer(String question, String correct_ans, String wrong_ans){
+
+    public Question_Answer(String question, String correct_ans, String wrong_ans,String good){
         this.question = question;
         this.correct_ans = correct_ans;
         this.wrong_ans = wrong_ans;
+        this.good_to_know = good;
+    }
+
+    public String getGood_to_know() {
+        return good_to_know;
     }
 
     public String getCorrect_ans() {
-        return this.correct_ans;
+        return filter(this.correct_ans);
     }
 
     public String getWrong_ans() {
-        return this.wrong_ans;
+        return filter(this.wrong_ans);
     }
 
     public String getQuestion() {
