@@ -32,12 +32,15 @@ public class Game extends JFrame {
 
     JPanel contentPane;
     int count;
+    public static int flag=0;
+    int initialCount;
     JLabel timeLabel = new JLabel(" ");
     java.util.Timer timer = new Timer(true);
 
-    public Game(int numoflife, queue_question queue_question) {
+    public Game(int numoflife, queue_question queue_question,int initCount) {
         super("quicky");
-        count = 6;
+        this.count = initCount;
+        this.initialCount = initCount;
         this.questions = queue_question;
         //questions = new GetQuest();
         setBackground(color);
@@ -79,7 +82,7 @@ public class Game extends JFrame {
                         score = 0;
                         f.setVisible(true);
                     } else {
-                        Game g = new Game(life, questions);
+                        Game g = new Game(life, questions,initialCount);
                         //g.repaint();
                         //g.pack();
                         g.setVisible(true);
@@ -138,7 +141,7 @@ public class Game extends JFrame {
             leftOpt = q.getWrong_ans();
             rightOpt = q.getCorrect_ans();
         }
-        JLabel messageLabel = new JLabel("<html>" + q.getQuestion() + "</html>");
+        JLabel messageLabel = new JLabel(q.getQuestion());
         messageLabel.setBackground(color);
         messageLabel.setForeground(Color.WHITE);
         messageLabel.setFont(new Font("Tahoma", Font.BOLD, height / 20));
@@ -166,9 +169,14 @@ public class Game extends JFrame {
                 //SelectRangeOfYears dialog = new SelectRangeOfYears();
                 //dialog.setVisible(true);
                 timer.cancel();
-                if (isCorrect(1, truth)) {
+                if (isCorrect(1, truth)&& initialCount>3) {
                     score += 10;
-                    count = 6;
+                    flag=flag+1;
+                    if (flag==5){
+                        flag=0;
+                        initialCount=initialCount-score/50;
+                    }
+                    count = initialCount;
 
 
                 } else {
@@ -186,7 +194,8 @@ public class Game extends JFrame {
                         return;
                     }
                 }
-                Game g = new Game(life, questions);
+
+                Game g = new Game(life, questions,initialCount);
 //                g.setQ(questions);
                 g.setVisible(true);
                 setVisible(false);
@@ -210,7 +219,12 @@ public class Game extends JFrame {
                 timer.cancel();
                 if (isCorrect(2, truth)) {
                     score += 10;
-                    count = 6;
+                    flag=flag+1;
+                    if (flag==5 && initialCount>3){
+                        flag=0;
+                        initialCount=initialCount-score/50;
+                    }
+                    count = initialCount;
 
 
                 } else {
@@ -229,7 +243,9 @@ public class Game extends JFrame {
                     }
                 }
                 //todo move to next q
-                Game g = new Game(life, questions);
+
+
+                Game g = new Game(life, questions,initialCount);
 //                g.setQ(questions);
                 g.setVisible(true);
                 setVisible(false);
