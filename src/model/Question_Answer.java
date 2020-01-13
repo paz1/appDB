@@ -30,7 +30,7 @@ public class Question_Answer {
     }
 
     public String getQuestion() {
-        return this.question;
+        return filterQue(this.question);
     }
     public Vector getQ(){
         Vector v = new Vector();
@@ -49,6 +49,20 @@ public class Question_Answer {
             ans+=splitStr[i];
             ans+="<br>";
         }
+        ans+="</html>";
+        return ans;
+    }
+    private String  filterQue(String str){
+        String[] splitStr=str.split(" ");
+        String ans=("<html>" );
+        for (int i=0;i<splitStr.length;i++){
+            ans+=splitStr[i];
+            ans+=" ";
+            if (i==8){
+                ans+="<br>";
+            }
+        }
+        ans+="<br>";
         ans+="</html>";
         return ans;
     }
