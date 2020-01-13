@@ -37,8 +37,8 @@ public class Game extends JFrame {
 
     public Game(int numoflife, queue_question queue_question) {
         super("quicky");
-        count=6;
-        this.questions=queue_question;
+        count = 6;
+        this.questions = queue_question;
         //questions = new GetQuest();
         setBackground(color);
         life = numoflife;
@@ -52,7 +52,7 @@ public class Game extends JFrame {
         timeLabel.setBackground(color);
         timeLabel.setForeground(Color.WHITE);
         timeLabel.setFont(new Font("Tahoma", Font.BOLD, height / 20));
-        timeLabel.setSize(new Dimension(height / 2, height / 3+40));
+        timeLabel.setSize(new Dimension(height / 2, height / 3 + 40));
         timeLabel.setLocation(10, 27);
         timeLabel.setHorizontalAlignment(SwingConstants.CENTER);
         timeLabel.setVerticalAlignment(SwingConstants.CENTER);
@@ -74,13 +74,12 @@ public class Game extends JFrame {
                         setVisible(false);
                         //Component component = (Component) getSource();
                         JFrame frame = new JFrame();
-                        int s=score;
-                        Facts f = new Facts(frame, true,s,questions);
-                        score=0;
+                        int s = score;
+                        Facts f = new Facts(frame, true, s, questions);
+                        score = 0;
                         f.setVisible(true);
-                    }
-                    else{
-                        Game g=new Game(life,questions);
+                    } else {
+                        Game g = new Game(life, questions);
                         //g.repaint();
                         //g.pack();
                         g.setVisible(true);
@@ -105,9 +104,9 @@ public class Game extends JFrame {
         int width = General.width;
         int height = General.height;
 
-        String str="";
-        for(int i=0;i<life;i++){
-            str+="♥";
+        String str = "";
+        for (int i = 0; i < life; i++) {
+            str += "♥";
         }
         JLabel livesLabel = new JLabel("<html>" + str + "</html>");
         livesLabel.setBackground(color);
@@ -118,11 +117,11 @@ public class Game extends JFrame {
         livesLabel.setHorizontalAlignment(SwingConstants.CENTER);
         livesLabel.setVerticalAlignment(SwingConstants.CENTER);
         contentPane.add(livesLabel);
-        JLabel scoreLabel = new JLabel("<html>" + "score: "+score + "</html>");
+        JLabel scoreLabel = new JLabel("<html>" + "score: " + score + "</html>");
         scoreLabel.setBackground(color);
         scoreLabel.setForeground(Color.WHITE);
         scoreLabel.setFont(new Font("Tahoma", Font.BOLD, height / 20));
-        scoreLabel.setSize(new Dimension(height / 2, height / 3-40));
+        scoreLabel.setSize(new Dimension(height / 2, height / 3 - 40));
         scoreLabel.setLocation(10, 10);
         scoreLabel.setHorizontalAlignment(SwingConstants.CENTER);
         scoreLabel.setVerticalAlignment(SwingConstants.CENTER);
@@ -145,7 +144,7 @@ public class Game extends JFrame {
         messageLabel.setFont(new Font("Tahoma", Font.BOLD, height / 20));
         //messageLabel.setSize(new Dimension(height / 2, height / 3));
         //messageLabel.setLocation(width / 2-15, width / 18-30);
-        messageLabel.setBounds(2, 2, width+120, height-300);
+        messageLabel.setBounds(2, 2, width + 120, height - 300);
         messageLabel.setHorizontalAlignment(SwingConstants.CENTER);
         messageLabel.setVerticalAlignment(SwingConstants.CENTER);
         contentPane.add(messageLabel);
@@ -169,7 +168,7 @@ public class Game extends JFrame {
                 timer.cancel();
                 if (isCorrect(1, truth)) {
                     score += 10;
-                    count=6;
+                    count = 6;
 
 
                 } else {
@@ -180,14 +179,14 @@ public class Game extends JFrame {
                         setVisible(false);
                         Component component = (Component) arg0.getSource();
                         JFrame frame = (JFrame) SwingUtilities.getRoot(component);
-                        int s=score;
-                        Facts f = new Facts(frame, true,s,questions);
-                        score=0;
+                        int s = score;
+                        Facts f = new Facts(frame, true, s, questions);
+                        score = 0;
                         f.setVisible(true);
                         return;
                     }
                 }
-                Game g=new Game(life,questions);
+                Game g = new Game(life, questions);
 //                g.setQ(questions);
                 g.setVisible(true);
                 setVisible(false);
@@ -211,7 +210,7 @@ public class Game extends JFrame {
                 timer.cancel();
                 if (isCorrect(2, truth)) {
                     score += 10;
-                    count=6;
+                    count = 6;
 
 
                 } else {
@@ -222,15 +221,15 @@ public class Game extends JFrame {
                         setVisible(false);
                         Component component = (Component) arg0.getSource();
                         JFrame frame = (JFrame) SwingUtilities.getRoot(component);
-                        int s=score;
-                        Facts f = new Facts(frame, true,s,questions);
-                        score=0;
+                        int s = score;
+                        Facts f = new Facts(frame, true, s, questions);
+                        score = 0;
                         f.setVisible(true);
                         return;
                     }
                 }
                 //todo move to next q
-                Game g=new Game(life,questions);
+                Game g = new Game(life, questions);
 //                g.setQ(questions);
                 g.setVisible(true);
                 setVisible(false);
@@ -239,6 +238,47 @@ public class Game extends JFrame {
         });
         contentPane.add(choose1);
         contentPane.add(choose2);
+        String ans=q.getCorrect_ans();
+        JLabel answer = new JLabel(ans);
+        answer.setBackground(color);
+        answer.setForeground(Color.WHITE);
+        answer.setFont(new Font("Tahoma", Font.BOLD, height / 20));
+        answer.setSize(new Dimension(height / 2, height / 3 - 40));
+        answer.setLocation(10, height / 2-50);
+        answer.setHorizontalAlignment(SwingConstants.CENTER);
+        answer.setVerticalAlignment(SwingConstants.CENTER);
+        answer.setVisible(false);
+        contentPane.add(answer);
+
+        JButton hint = new JButton("hint");
+        //Color color1 = new Color(146,45,18);
+        hint.setBackground(color1);
+        hint.setForeground(Color.ORANGE);
+        hint.setFont(new Font("Tahoma", Font.BOLD, 15));
+        hint.setBorder(new MatteBorder(2, 2, 2, 2, (Color) color.ORANGE));
+        hint.setSize(new Dimension(40, 40));
+        hint.setLocation(20, height / 2);
+        hint.setFocusPainted(false);
+        hint.addActionListener(new ActionListener() {
+            //            public void actionPerformed(ActionEvent arg0) {
+//                JLabel answer = new JLabel("<html>" + q.getCorrect_ans() + "</html>");
+//                answer.setBackground(color);
+//                answer.setForeground(Color.WHITE);
+//                answer.setFont(new Font("Tahoma", Font.BOLD, height / 20));
+//                answer.setSize(new Dimension(100, 100));
+//                answer.setLocation(50, height/2+30);
+//                //answer.setBounds(2, 2, width+120, height-300);
+//                //contentPane.removeAll();
+//                add(answer);
+//                revalidate();
+//                repaint();
+//            }
+            public void actionPerformed(ActionEvent arg0) {
+                answer.setVisible(true);
+            }
+        });
+        contentPane.add(hint);
+
         repaint();
     }
 
