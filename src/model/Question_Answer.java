@@ -58,7 +58,7 @@ public class Question_Answer {
         for (int i=0;i<splitStr.length;i++){
             ans+=splitStr[i];
             ans+=" ";
-            if (i==8){
+            if (i==6){
                 ans+="<br>";
             }
         }
