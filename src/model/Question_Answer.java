@@ -9,7 +9,6 @@ public class Question_Answer {
     private String good_to_know;
 
 
-
     public Question_Answer(String question, String correct_ans, String wrong_ans,String good){
         this.question = question;
         this.correct_ans = correct_ans;
@@ -38,7 +37,7 @@ public class Question_Answer {
         return v;
     }
     private void fillVector(Vector v) {
-        v.add(this.question);
+        v.add(filterQue(this.question));
         v.add(filter(this.correct_ans));
         v.add(filter(this.wrong_ans));
     }
