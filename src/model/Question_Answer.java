@@ -30,7 +30,7 @@ public class Question_Answer {
     }
 
     public String getQuestion() {
-        return this.question;
+        return filterQue(this.question);
     }
     public Vector getQ(){
         Vector v = new Vector();
@@ -42,7 +42,7 @@ public class Question_Answer {
         v.add(filter(this.correct_ans));
         v.add(filter(this.wrong_ans));
     }
-    private String  filter(String str){
+    private String filter(String str){
         String[] splitStr=str.split(" ");
         String ans=("<html>" );
         for (int i=0;i<splitStr.length;i++){
@@ -51,5 +51,15 @@ public class Question_Answer {
         }
         ans+="</html>";
         return ans;
+    }
+    private String filterQue(String str){
+        String[] splitStr=str.split(" ");
+        String ques=("<html>" );
+        for (int i=0;i<splitStr.length;i=i+8){
+            ques+=splitStr[i];
+            ques+="<br>";
+        }
+        ques+="</html>";
+        return ques;
     }
 }
