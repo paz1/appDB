@@ -25,7 +25,7 @@ public class Main {
 
         while (true){
             int db_q = rand.nextInt(my_question.get_size());
-    //        db_q = 2;
+            db_q = 1;
             //String ask = my_question.get_question_to_DB(db_q);
 
             ArrayList<ArrayList<String>> temp = db.get_ans(db_q);

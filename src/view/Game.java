@@ -15,7 +15,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class Game extends JFrame {
-    Color color = new Color(131, 24, 11);
+    Color color = new Color(255, 153, 229);
     public static int life;
     public static int score = 0;
     model.queue_question questions;

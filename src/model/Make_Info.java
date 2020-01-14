@@ -13,33 +13,33 @@ public class Make_Info {
         this.map_question.put(4, new MyParser() {
             @Override
             public Question_Answer Parse( ArrayList<ArrayList<String>> lines) {
-               int size_of_lines = lines.size();
-               if (size_of_lines<2)
-               {
-                   return null;
-               }
-               Random r = new Random();
+                int size_of_lines = lines.size();
+                if (size_of_lines<2)
+                {
+                    return null;
+                }
+                Random r = new Random();
 
-               int random_currect_ans  = r.nextInt(size_of_lines);
-               List<String> cur_ans = lines.get(random_currect_ans);
-               int random_fake;
-               List<String> fake_ans;
-               int stop = 0;
-               while (true){
-                   random_fake = r.nextInt(size_of_lines);
-                   fake_ans = lines.get(random_fake);
-                   if((random_currect_ans!=random_fake)&&(!cur_ans.get(0).equals(fake_ans.get(0)) )){
-                       break;
-                   }
-                   if (stop==100){
-                       return null;
-                   }
-                   stop++;
-               }
+                int random_currect_ans  = r.nextInt(size_of_lines);
+                List<String> cur_ans = lines.get(random_currect_ans);
+                int random_fake;
+                List<String> fake_ans;
+                int stop = 0;
+                while (true){
+                    random_fake = r.nextInt(size_of_lines);
+                    fake_ans = lines.get(random_fake);
+                    if((random_currect_ans!=random_fake)&&(!cur_ans.get(0).equals(fake_ans.get(0)) )){
+                        break;
+                    }
+                    if (stop==100){
+                        return null;
+                    }
+                    stop++;
+                }
 
-               String ret = Qusetion_Map.getInstance().get_question_to_DB(4)+"\""+ cur_ans.get(1)+"\"";
-
-               return new Question_Answer( ret,cur_ans.get(0),fake_ans.get(0));
+                String ret = "Which album does the song "+"\""+ cur_ans.get(1)+"\""+"belong to?";
+                String good = "Do you know that the song "+"\""+ fake_ans.get(1)+"\""+"belong to "+"\""+ fake_ans.get(0)+"\"";
+                return new Question_Answer( ret,cur_ans.get(0),fake_ans.get(0),good);
 
 
             }
@@ -77,7 +77,9 @@ public class Make_Info {
                     stop++;
                 }
 
-                return new Question_Answer(Qusetion_Map.getInstance().get_question_to_DB(0),cur_ans.get(0),fake_ans.get(0));
+
+                String good = "Do you know that "+"\""+ cur_ans.get(0)+"\""+" has "+ cur_ans.get(1)+" song";
+                return new Question_Answer(Qusetion_Map.getInstance().get_question_to_DB(0),cur_ans.get(0),fake_ans.get(0),good);
 
 
             }
@@ -110,8 +112,8 @@ public class Make_Info {
                 }
                 String ques ="Which year the song "+"\""+ cur_ans.get(0)+"\""+"  was released?";
 
-
-                return new Question_Answer( ques,cur_ans.get(1),fake_ans.get(1));
+                String good = "Do you know that the song "+"\""+ fake_ans.get(0)+"\""+" was released in "+fake_ans.get(1);
+                return new Question_Answer( ques,cur_ans.get(1),fake_ans.get(1),good);
             }
         });
         this.map_question.put(2, new MyParser() {
@@ -141,7 +143,8 @@ public class Make_Info {
                 }
 
                 String ques ="Where the singer "+"\""+ cur_ans.get(0)+"\""+"  lives?";
-                return new Question_Answer( ques,cur_ans.get(1),fake_ans.get(1));
+                String goood = "Do you know that the singer "+"\""+ fake_ans.get(0)+"\""+" live in "+fake_ans.get(1);
+                return new Question_Answer( ques,cur_ans.get(1),fake_ans.get(1),goood);
             }
         });
 
@@ -171,9 +174,9 @@ public class Make_Info {
                     }
                     stop++;
                 }
-
+                String goood ="Do you know that "+"\""+ fake_ans.get(0)+"\""+" sing "+fake_ans.get(1);
                 String ques =Qusetion_Map.getInstance().get_question_to_DB(3)+" "+"\""+ cur_ans.get(1)+"\""+"?";
-                return new Question_Answer( ques,cur_ans.get(0),fake_ans.get(0));
+                return new Question_Answer( ques,cur_ans.get(0),fake_ans.get(0),goood);
             }
         });
 
