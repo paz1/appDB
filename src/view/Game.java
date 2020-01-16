@@ -13,31 +13,25 @@ import java.awt.event.ActionListener;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.Vector;
-//class MyPanel extends JPanel{
-//    @Override
-//    protected void paintComponent(Graphics g) {
-//
-//        super.paintComponent(g);
-//        Image background = Toolkit.getDefaultToolkit().createImage("image.jpg");
-//        g.drawImage(background, 0, 0, null);
-//    }
-//}
 
 public class Game extends JFrame {
     Color color = new Color(255, 153, 229);
     public static int life;
     public static int score = 0;
     model.queue_question questions;
+    public static int level=1;
 
     JPanel contentPane;
     int count;
+    public static int flag=0;
+    int initialCount;
     JLabel timeLabel = new JLabel(" ");
     java.util.Timer timer = new Timer(true);
 
-    public Game(int numoflife, queue_question queue_question) {
+    public Game(int numoflife, queue_question queue_question,int initCount) {
         super("quicky");
-        count = 6;
+        this.count = initCount;
+        this.initialCount = initCount;
         this.questions = queue_question;
         //questions = new GetQuest();
         setBackground(color);
@@ -51,7 +45,7 @@ public class Game extends JFrame {
 
         timeLabel.setBackground(color);
         timeLabel.setForeground(Color.WHITE);
-        timeLabel.setFont(new Font("Tahoma", Font.BOLD, height / 20));
+        timeLabel.setFont(new Font("Comic Sans MS", Font.BOLD, height / 20));
         timeLabel.setSize(new Dimension(height / 2, height / 3 + 40));
         timeLabel.setLocation(10, 27);
         timeLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -77,9 +71,10 @@ public class Game extends JFrame {
                         int s = score;
                         Facts f = new Facts(frame, true, s, questions);
                         score = 0;
+                        //level=1;
                         f.setVisible(true);
                     } else {
-                        Game g = new Game(life, questions);
+                        Game g = new Game(life, questions,initialCount);
                         //g.repaint();
                         //g.pack();
                         g.setVisible(true);
@@ -96,10 +91,6 @@ public class Game extends JFrame {
         contentPane.setLayout(null);
     }
 
-//    public void setQ(Question_Answer questions) {
-//        this.questions = questions;
-//    }
-
     public void runGame() {
         int width = General.width;
         int height = General.height;
@@ -111,21 +102,33 @@ public class Game extends JFrame {
         JLabel livesLabel = new JLabel("<html>" + str + "</html>");
         livesLabel.setBackground(color);
         livesLabel.setForeground(Color.WHITE);
-        livesLabel.setFont(new Font("Tahoma", Font.BOLD, height / 20));
+        livesLabel.setFont(new Font("Comic Sans MS", Font.BOLD, height / 20));
         livesLabel.setSize(new Dimension(height / 2, height / 3));
         livesLabel.setLocation(10, 18);
         livesLabel.setHorizontalAlignment(SwingConstants.CENTER);
         livesLabel.setVerticalAlignment(SwingConstants.CENTER);
         contentPane.add(livesLabel);
+
         JLabel scoreLabel = new JLabel("<html>" + "score: " + score + "</html>");
         scoreLabel.setBackground(color);
         scoreLabel.setForeground(Color.WHITE);
-        scoreLabel.setFont(new Font("Tahoma", Font.BOLD, height / 20));
+        scoreLabel.setFont(new Font("Comic Sans MS", Font.BOLD, height / 20));
         scoreLabel.setSize(new Dimension(height / 2, height / 3 - 40));
         scoreLabel.setLocation(10, 10);
         scoreLabel.setHorizontalAlignment(SwingConstants.CENTER);
         scoreLabel.setVerticalAlignment(SwingConstants.CENTER);
         contentPane.add(scoreLabel);
+
+        JLabel Jlevel = new JLabel("<html>" + "level " + level + "</html>");
+        Jlevel.setBackground(color);
+        Jlevel.setForeground(color.ORANGE);
+        Jlevel.setFont(new Font("Tahoma", Font.BOLD, height / 15));
+        Jlevel.setSize(new Dimension(height / 2, height / 3 - 100));
+        Jlevel.setLocation(width/2-70, 8);
+        Jlevel.setHorizontalAlignment(SwingConstants.CENTER);
+        Jlevel.setVerticalAlignment(SwingConstants.CENTER);
+        contentPane.add(Jlevel);
+
         //while(true) {
         // todo - call to sheilta. the first ans is correct
         Question_Answer q = questions.getQ();
@@ -141,10 +144,10 @@ public class Game extends JFrame {
         JLabel messageLabel = new JLabel(q.getQuestion());
         messageLabel.setBackground(color);
         messageLabel.setForeground(Color.WHITE);
-        messageLabel.setFont(new Font("Tahoma", Font.BOLD, height / 20));
+        messageLabel.setFont(new Font("Comic Sans MS", Font.BOLD, height / 20));
         //messageLabel.setSize(new Dimension(height / 2, height / 3));
         //messageLabel.setLocation(width / 2-15, width / 18-30);
-        messageLabel.setBounds(2, 2, width + 120, height - 300);
+        messageLabel.setBounds(2, 2, width + 120, height - 320);
         messageLabel.setHorizontalAlignment(SwingConstants.CENTER);
         messageLabel.setVerticalAlignment(SwingConstants.CENTER);
         contentPane.add(messageLabel);
@@ -153,7 +156,7 @@ public class Game extends JFrame {
         Color color1 = new Color(146, 45, 18);
         choose1.setBackground(color1);
         choose1.setForeground(Color.ORANGE);
-        choose1.setFont(new Font("Tahoma", Font.BOLD, height / 15));
+        choose1.setFont(new Font("Comic Sans MS", Font.BOLD, height / 15));
         choose1.setBorder(new MatteBorder(2, 2, 2, 2, (Color) color.ORANGE));
         choose1.setSize(new Dimension(height / 2, height / 2));
         choose1.setLocation(height / 2, width / 6);
@@ -162,13 +165,18 @@ public class Game extends JFrame {
         //choose1.setVerticalAlignment(SwingConstants.CENTER);
         choose1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-                //setVisible(false);
-                //SelectRangeOfYears dialog = new SelectRangeOfYears();
-                //dialog.setVisible(true);
                 timer.cancel();
                 if (isCorrect(1, truth)) {
                     score += 10;
-                    count = 6;
+                    flag=flag+1;
+                    if (flag==5 ){
+                        flag=0;
+                        level++;
+                        if(initialCount>3) {
+                            initialCount = initialCount - 1;
+                        }
+                    }
+                    count = initialCount;
 
 
                 } else {
@@ -183,10 +191,12 @@ public class Game extends JFrame {
                         Facts f = new Facts(frame, true, s, questions);
                         score = 0;
                         f.setVisible(true);
+                        level=1;
                         return;
                     }
                 }
-                Game g = new Game(life, questions);
+
+                Game g = new Game(life, questions,initialCount);
 //                g.setQ(questions);
                 g.setVisible(true);
                 setVisible(false);
@@ -198,7 +208,7 @@ public class Game extends JFrame {
         //Color color1 = new Color(146,45,18);
         choose2.setBackground(color1);
         choose2.setForeground(Color.ORANGE);
-        choose2.setFont(new Font("Tahoma", Font.BOLD, height / 15));
+        choose2.setFont(new Font("Comic Sans MS", Font.BOLD, height / 15));
         choose2.setBorder(new MatteBorder(2, 2, 2, 2, (Color) color.ORANGE));
         choose2.setSize(new Dimension(height / 2, height / 2));
         choose2.setLocation(width - height / 2 - width / 10, width / 6);
@@ -210,7 +220,15 @@ public class Game extends JFrame {
                 timer.cancel();
                 if (isCorrect(2, truth)) {
                     score += 10;
-                    count = 6;
+                    flag=flag+1;
+                    if (flag==5 ){
+                        flag=0;
+                        level++;
+                        if(initialCount>3) {
+                            initialCount = initialCount - 1;
+                        }
+                    }
+                    count = initialCount;
 
 
                 } else {
@@ -224,12 +242,13 @@ public class Game extends JFrame {
                         int s = score;
                         Facts f = new Facts(frame, true, s, questions);
                         score = 0;
+                        level=1;
                         f.setVisible(true);
                         return;
                     }
                 }
-                //todo move to next q
-                Game g = new Game(life, questions);
+
+                Game g = new Game(life, questions,initialCount);
 //                g.setQ(questions);
                 g.setVisible(true);
                 setVisible(false);
@@ -238,11 +257,14 @@ public class Game extends JFrame {
         });
         contentPane.add(choose1);
         contentPane.add(choose2);
+
+
+
         String ans=q.getCorrect_ans();
         JLabel answer = new JLabel(ans);
         answer.setBackground(color);
         answer.setForeground(Color.WHITE);
-        answer.setFont(new Font("Tahoma", Font.BOLD, height / 20));
+        answer.setFont(new Font("Comic Sans MS", Font.BOLD, height / 20));
         answer.setSize(new Dimension(height / 2, height / 3 - 40));
         answer.setLocation(10, height / 2-50);
         answer.setHorizontalAlignment(SwingConstants.CENTER);
@@ -254,31 +276,17 @@ public class Game extends JFrame {
         //Color color1 = new Color(146,45,18);
         hint.setBackground(color1);
         hint.setForeground(Color.ORANGE);
-        hint.setFont(new Font("Tahoma", Font.BOLD, 15));
+        hint.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
         hint.setBorder(new MatteBorder(2, 2, 2, 2, (Color) color.ORANGE));
         hint.setSize(new Dimension(40, 40));
         hint.setLocation(20, height / 2);
         hint.setFocusPainted(false);
         hint.addActionListener(new ActionListener() {
-            //            public void actionPerformed(ActionEvent arg0) {
-//                JLabel answer = new JLabel("<html>" + q.getCorrect_ans() + "</html>");
-//                answer.setBackground(color);
-//                answer.setForeground(Color.WHITE);
-//                answer.setFont(new Font("Tahoma", Font.BOLD, height / 20));
-//                answer.setSize(new Dimension(100, 100));
-//                answer.setLocation(50, height/2+30);
-//                //answer.setBounds(2, 2, width+120, height-300);
-//                //contentPane.removeAll();
-//                add(answer);
-//                revalidate();
-//                repaint();
-//            }
             public void actionPerformed(ActionEvent arg0) {
                 answer.setVisible(true);
             }
         });
         contentPane.add(hint);
-
         repaint();
     }
 

@@ -20,18 +20,70 @@ public class MainWindow extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					MainWindow frame = new MainWindow();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					queue_question q=new queue_question();
+					q.add_to_list(new Question_Answer("what is  gr gd gds gd gsd sg ge gewg my name?","pfshlkfhf ff az","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					MainWindow frame = new MainWindow(q);
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 
 
 
@@ -91,7 +143,7 @@ public class MainWindow extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				//Component component = (Component) arg0.getSource();
 				setVisible(false);
-				g = new Game(3,queue_question);
+				g = new Game(3,queue_question,11);
 				g.setVisible(true);
 				g.runGame();
 			}
