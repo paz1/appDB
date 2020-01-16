@@ -27,4 +27,7 @@ public class queue_question {
         }
         return qq;
     }
+    public Integer sizel(){
+        return this.my_list.size();
+    }
 }
