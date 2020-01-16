@@ -9,6 +9,7 @@ import javax.swing.border.MatteBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.Timer;
 
 import static java.lang.System.exit;
 
@@ -39,10 +40,13 @@ public class Facts extends JDialog{
         Color color1 = new Color(146, 45, 18);
         //messageLabel.setBorder(new MatteBorder(2, 2, 2, 2,);
         messageLabel.setSize(new Dimension(height , height / 3-20));
-        messageLabel.setLocation(width / 3-80, width / 3+2);
+        messageLabel.setLocation(width / 3-110, width / 3+2);
         messageLabel.setHorizontalAlignment(SwingConstants.CENTER);
         messageLabel.setVerticalAlignment(SwingConstants.CENTER);
+
         contentPane.add(messageLabel);
+
+
 
         int textFieldHeight = height / 30;
         JButton exitGame = new JButton("exit game");
@@ -69,12 +73,26 @@ public class Facts extends JDialog{
         menuButton.setBorder(new MatteBorder(2, 2, 2, 2, (Color) color.PINK));
         menuButton.setSize(new Dimension(height / 2, height / 2-65));
         menuButton.setLocation(height+10 , (width / 6)-30);
+        Timer timer = new Timer(500, new ActionListener() {
+            private int counter = 0;
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                counter++;
+                if (counter % 2 == 0) {
+                    menuButton.setBackground(new Color(146, 45, 18));
+                } else {
+                    menuButton.setBackground(new Color(90, 0, 0));
+                }
+            }
+        });
+        timer.start();
         menuButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 setVisible(false);
                 MainWindow frame = new MainWindow(q);
                 frame.setVisible(true);
             }
+
         });
 //        JButton knowButton = new JButton("good to know");
 //        //Color color1 = new Color(146,45,18);
@@ -104,7 +122,7 @@ public class Facts extends JDialog{
         scoreLabel.setBackground(color);
         scoreLabel.setForeground(Color.WHITE);
         scoreLabel.setFont(new Font("Tahoma", Font.BOLD, height / 13));
-        scoreLabel.setSize(new Dimension(width/2+345, height/3-70 ));
+        scoreLabel.setSize(new Dimension(width/2+440, height/3-45 ));
         //scoreLabel.setLocation(width / 2-200, 20);
         scoreLabel.setHorizontalAlignment(SwingConstants.CENTER);
         scoreLabel.setVerticalAlignment(SwingConstants.CENTER);
