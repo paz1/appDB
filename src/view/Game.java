@@ -33,7 +33,7 @@ public class Game extends JFrame {
         this.count = initCount;
         this.initialCount = initCount;
         this.questions = queue_question;
-
+        flag=0;
         //questions = new GetQuest();
         setBackground(color);
         life = numoflife;
