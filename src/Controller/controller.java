@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 import DB.JDBC;
 import model.*;
@@ -9,14 +9,15 @@ import java.util.Random;
 
 public class controller {
 
-
-
+    Main_model model;
+    public controller(){
+        this.model = new Main_model();
+    }
     public void run_game(){
 
-        Main_model model = new Main_model();
         queue_question q=new queue_question();
         View v = new View();
-        v.openWindow(q);
+        v.openWindow(this,q);
         Qusetion_Map my_question = Qusetion_Map.getInstance();
         Random rand = new Random();
 
@@ -34,5 +35,29 @@ public class controller {
             int x = 5;
         }
     }
+    public void initGame(){
+        model.initGame();
+    }
+    public int getLevel() {
+        return model.getLevel();
+    }
+
+    public int getScore() {
+        return model.getScore();
+    }
+
+    public int getLife() {
+        return model.getLife();
+    }
+    public int getInitialCount() {
+        return model.getInitialCount();
+    }
+    public void correct(){
+        model.correct();
+    }
+    public void wrong(){
+        model.wrong();
+    }
+
 
 }
