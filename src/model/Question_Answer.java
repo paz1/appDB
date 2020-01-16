@@ -18,7 +18,7 @@ public class Question_Answer {
     }
 
     public String getGood_to_know() {
-        return good_to_know;
+        return filterQue(good_to_know);
     }
 
     public String getCorrect_ans() {
@@ -32,16 +32,7 @@ public class Question_Answer {
     public String getQuestion() {
         return filterQue(this.question);
     }
-    public Vector getQ(){
-        Vector v = new Vector();
-        fillVector(v);
-        return v;
-    }
-    private void fillVector(Vector v) {
-        v.add(this.question);
-        v.add(filter(this.correct_ans));
-        v.add(filter(this.wrong_ans));
-    }
+
     private String  filter(String str){
         String[] splitStr=str.split(" ");
         String ans=("<html><div style='text-align: center;'>" );
