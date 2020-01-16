@@ -26,6 +26,8 @@ public class Facts extends JDialog{
         int height = General.height;
         setBounds((General.screenWidth - width) / 2, (General.screenHeight - height) / 2, width, height);
         JPanel contentPane = new JPanel();
+
+
         contentPane.setBackground(color);
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
@@ -39,11 +41,11 @@ public class Facts extends JDialog{
         messageLabel.setFont(new Font("Comic Sans MS", Font.BOLD, height / 20));
 
         messageLabel.setBorder(new MatteBorder(2, 2, 2, 2,color));
-        messageLabel.setSize(new Dimension(height*2 , height / 3-20));
-        messageLabel.setLocation(width / 3+70, width / 3+2);
+        messageLabel.setSize(new Dimension(width , height / 3-20));
+        messageLabel.setLocation(0, width / 3+2);
         //messageLabel.setHorizontalAlignment(SwingConstants.CENTER);
         //messageLabel.setVerticalAlignment(SwingConstants.CENTER);
-
+        messageLabel.setHorizontalAlignment(JLabel.CENTER);
         contentPane.add(messageLabel);
 
 
