@@ -33,7 +33,6 @@ public class Game extends JFrame {
         this.count = initCount;
         this.initialCount = initCount;
         this.questions = queue_question;
-
         //questions = new GetQuest();
         setBackground(color);
         life = numoflife;
@@ -72,6 +71,7 @@ public class Game extends JFrame {
                         int s = score;
                         Facts f = new Facts(frame, true, s, questions,question_answer);
                         score = 0;
+                        flag=0;
                         //level=1;
                         f.setVisible(true);
                     } else {
@@ -180,6 +180,7 @@ public class Game extends JFrame {
                         int s = score;
                         Facts f = new Facts(frame, true, s, questions,q);
                         score = 0;
+                        flag=0;
                         f.setVisible(true);
                         level=1;
                         return;
@@ -237,6 +238,7 @@ public class Game extends JFrame {
                         int s = score;
                         Facts f = new Facts(frame, true, s, questions,q);
                         score = 0;
+                        flag=0;
                         level=1;
                         f.setVisible(true);
                         return;
