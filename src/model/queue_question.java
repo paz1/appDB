@@ -21,8 +21,12 @@ public class queue_question {
             qq =  this.my_list.get(0);
             this.my_list.remove(0);
             if (qq.getLength_ans_co()<=5&&qq.getLength_ans_wr()<=5){
+                if (qq.corrct_too_long()==false && qq.wrong_too_long()==false){
                     break;
+                }
+
             }
+
 
         }
         return qq;
