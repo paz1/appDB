@@ -33,7 +33,7 @@ public class JDBC {
 
         this.map_question.put(0,"SELECT artists.ArtistName,COUNT(songs.ArtistID) as" +
                 " ll FROM artists Join songs ON songs.ArtistID = artists.ArtistID GROUP BY songs.ArtistID ORDER BY ll DESC");
-        this.map_question.put(1,"SELECT Title ,Year,ArtistName FROM artists a Join songs s ON a.ArtistID = s.ArtistID Join (SELECT singer FROM bestsingers ORDER BY RAND() LIMIT 1) as t ON t.singer = a.ArtistName");
+        this.map_question.put(1,"SELECT Title ,Year FROM artists a Join songs s ON a.ArtistID = s.ArtistID Join (SELECT singer FROM bestsingers ORDER BY RAND() LIMIT 1) as t ON t.singer = a.ArtistName");
         this.map_question.put(2, "SELECT ArtistName,ArtistLocation FROM artists WHERE ArtistHotness > 0.6 AND ArtistLocation NOT LIKE '-'");
         this.map_question.put(3, "SELECT ArtistName ,Title FROM artists a Join songs s ON a.ArtistID = s.ArtistID Join bestsingers b ON b.singer = a.ArtistName");
         this.map_question.put(4,"SELECT albums.AlbumName , songs.Title FROM albums JOIN songs ON albums.AlbumID = songs.AlbumID WHERE songs.SongHotttnesss > 0.7");
