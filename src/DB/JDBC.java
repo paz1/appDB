@@ -120,11 +120,6 @@ public class JDBC {
     }
 
 
-
-
-
-
-
     public boolean close_conn(){
         if (this.connect){
             try {

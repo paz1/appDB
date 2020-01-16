@@ -38,7 +38,7 @@ public class Make_Info {
                 }
 
                 String ret = "Which album does the song "+"\""+ cur_ans.get(1)+"\""+" belong to?";
-                String good = "The song "+"\""+ fake_ans.get(1)+"\""+" belong to "+"\""+ fake_ans.get(0)+"\"";
+                String good = "The song "+"\""+ fake_ans.get(1)+"\""+" belong to the album "+"\""+ fake_ans.get(0)+"\"";
                 return new Question_Answer( ret,cur_ans.get(0),fake_ans.get(0),good);
 
 
