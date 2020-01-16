@@ -17,6 +17,7 @@ public class Question_Answer {
         this.good_to_know = good;
     }
 
+
     public String getGood_to_know() {
         return filterQue(good_to_know);
     }
@@ -24,6 +25,16 @@ public class Question_Answer {
     public String getCorrect_ans() {
         return filter(this.correct_ans);
     }
+
+    public int getLength_ans_co() {
+        int num= (this.correct_ans).split(" ").length;
+        return num;
+    }
+    public int getLength_ans_wr() {
+        int num= (this.correct_ans).split(" ").length;
+        return num;
+    }
+
 
     public String getWrong_ans() {
         return filter(this.wrong_ans);
@@ -33,7 +44,7 @@ public class Question_Answer {
         return filterQue(this.question);
     }
 
-    private String  filter(String str){
+    private String filter(String str){
         String[] splitStr=str.split(" ");
         String ans=("<html><div style='text-align: center;'>" );
         for (int i=0;i<splitStr.length;i++){
