@@ -24,8 +24,11 @@ public class Main {
         Random rand = new Random();
 
         while (true){
+            if (q.sizel()==100){
+                continue;
+            }
             int db_q = rand.nextInt(my_question.get_size());
-            db_q = 1;
+            //db_q = 1;
             //String ask = my_question.get_question_to_DB(db_q);
 
             ArrayList<ArrayList<String>> temp = db.get_ans(db_q);

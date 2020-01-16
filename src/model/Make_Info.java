@@ -37,8 +37,8 @@ public class Make_Info {
                     stop++;
                 }
 
-                String ret = "Which album does the song "+"\""+ cur_ans.get(1)+"\""+"belong to?";
-                String good = "Do you know that the song "+"\""+ fake_ans.get(1)+"\""+"belong to "+"\""+ fake_ans.get(0)+"\"";
+                String ret = "Which album does the song "+"\""+ cur_ans.get(1)+"\""+" belong to?";
+                String good = "The song "+"\""+ fake_ans.get(1)+"\""+" belong to "+"\""+ fake_ans.get(0)+"\"";
                 return new Question_Answer( ret,cur_ans.get(0),fake_ans.get(0),good);
 
 
@@ -78,7 +78,7 @@ public class Make_Info {
                 }
 
 
-                String good = "Do you know that "+"\""+ cur_ans.get(0)+"\""+" has "+ cur_ans.get(1)+" song";
+                String good = "\""+ cur_ans.get(0)+"\""+" has "+ cur_ans.get(1)+" songs";
                 return new Question_Answer(Qusetion_Map.getInstance().get_question_to_DB(0),cur_ans.get(0),fake_ans.get(0),good);
 
 
@@ -112,7 +112,7 @@ public class Make_Info {
                 }
                 String ques ="Which year the song "+"\""+ cur_ans.get(0)+"\""+"  was released?";
 
-                String good = "Do you know that the song "+"\""+ fake_ans.get(0)+"\""+" was released in "+fake_ans.get(1);
+                String good = "The song "+"\""+ fake_ans.get(0)+"\""+" was released in "+fake_ans.get(1);
                 return new Question_Answer( ques,cur_ans.get(1),fake_ans.get(1),good);
             }
         });
@@ -143,7 +143,7 @@ public class Make_Info {
                 }
 
                 String ques ="Where the singer "+"\""+ cur_ans.get(0)+"\""+"  lives?";
-                String goood = "Do you know that the singer "+"\""+ fake_ans.get(0)+"\""+" live in "+fake_ans.get(1);
+                String goood = "The singer "+"\""+ fake_ans.get(0)+"\""+" live in "+fake_ans.get(1);
                 return new Question_Answer( ques,cur_ans.get(1),fake_ans.get(1),goood);
             }
         });
@@ -174,7 +174,7 @@ public class Make_Info {
                     }
                     stop++;
                 }
-                String goood ="Do you know that "+"\""+ fake_ans.get(0)+"\""+" sing "+fake_ans.get(1);
+                String goood ="\""+ fake_ans.get(0)+"\""+" sing "+"\""+fake_ans.get(1)+"\"";
                 String ques =Qusetion_Map.getInstance().get_question_to_DB(3)+" "+"\""+ cur_ans.get(1)+"\""+"?";
                 return new Question_Answer( ques,cur_ans.get(0),fake_ans.get(0),goood);
             }
