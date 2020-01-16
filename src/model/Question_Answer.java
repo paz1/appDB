@@ -18,7 +18,7 @@ public class Question_Answer {
     }
 
     public String getGood_to_know() {
-        return good_to_know;
+        return filterQue(good_to_know);
     }
 
     public String getCorrect_ans() {
