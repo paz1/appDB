@@ -44,7 +44,7 @@ public class Question_Answer {
     }
     private String  filter(String str){
         String[] splitStr=str.split(" ");
-        String ans=("<html>" );
+        String ans=("<html><div style='text-align: center;'>" );
         for (int i=0;i<splitStr.length;i++){
             ans+=splitStr[i];
             ans+="<br>";
@@ -52,9 +52,10 @@ public class Question_Answer {
         ans+="</html>";
         return ans;
     }
+
     private String  filterQue(String str){
         String[] splitStr=str.split(" ");
-        String ans=("<html>" );
+        String ans=("<html><div style='text-align: center;'>" );
         for (int i=0;i<splitStr.length;i++){
             ans+=splitStr[i];
             ans+=" ";
