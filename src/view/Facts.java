@@ -17,7 +17,7 @@ import model.Question_Answer;
 
 public class Facts extends JDialog{
     Color color = new Color(131,24 ,11);
-    public Facts(Frame owner, boolean modal, int score, queue_question q) {
+    public Facts(Frame owner, boolean modal, int score, queue_question q,Question_Answer qu) {
         super(owner, modal);
         setBackground(color);
         //int width = General.screenWidth / 3;
@@ -31,7 +31,6 @@ public class Facts extends JDialog{
         setContentPane(contentPane);
         contentPane.setLayout(null);
         //did you know:
-        Question_Answer qu=new Question_Answer("what","tr","paz","it is a wonderful game:) :) i love it!");
         String know=qu.getGood_to_know();
         JLabel messageLabel = new JLabel("<html><div style='text-align: center;'>"+"good to know:" +"<br>"+know+"</html>");
         messageLabel.setBackground(color);
