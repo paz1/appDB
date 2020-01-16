@@ -90,11 +90,7 @@ public class Game extends JFrame {
         setContentPane(contentPane);
         contentPane.setLayout(null);
     }
-
-    public void runGame() {
-        int width = General.width;
-        int height = General.height;
-
+    public void addLivesLabel(int height){
         String str = "";
         for (int i = 0; i < life; i++) {
             str += "♥";
@@ -108,7 +104,8 @@ public class Game extends JFrame {
         livesLabel.setHorizontalAlignment(SwingConstants.CENTER);
         livesLabel.setVerticalAlignment(SwingConstants.CENTER);
         contentPane.add(livesLabel);
-
+    }
+    public void addScoreLabel(int height){
         JLabel scoreLabel = new JLabel("<html>" + "score: " + score + "</html>");
         scoreLabel.setBackground(color);
         scoreLabel.setForeground(Color.WHITE);
@@ -118,7 +115,8 @@ public class Game extends JFrame {
         scoreLabel.setHorizontalAlignment(SwingConstants.CENTER);
         scoreLabel.setVerticalAlignment(SwingConstants.CENTER);
         contentPane.add(scoreLabel);
-
+    }
+    public void addLevelLabel(int height,int width){
         JLabel Jlevel = new JLabel("<html>" + "level " + level + "</html>");
         Jlevel.setBackground(color);
         Jlevel.setForeground(color.BLACK);
@@ -128,19 +126,8 @@ public class Game extends JFrame {
         Jlevel.setHorizontalAlignment(SwingConstants.CENTER);
         Jlevel.setVerticalAlignment(SwingConstants.CENTER);
         contentPane.add(Jlevel);
-
-        //while(true) {
-        // todo - call to sheilta. the first ans is correct
-        Question_Answer q = questions.getQ();
-        Random rand = new Random();
-        int truth = rand.nextInt(2) + 1;
-        String leftOpt, rightOpt;
-        leftOpt = q.getCorrect_ans();
-        rightOpt = q.getWrong_ans();
-        if (truth == 2) {
-            leftOpt = q.getWrong_ans();
-            rightOpt = q.getCorrect_ans();
-        }
+    }
+    public void addQuestion(Question_Answer q,int height,int width){
         JLabel messageLabel = new JLabel(q.getQuestion());
         messageLabel.setBackground(color);
         messageLabel.setForeground(Color.WHITE);
@@ -151,7 +138,8 @@ public class Game extends JFrame {
         messageLabel.setHorizontalAlignment(SwingConstants.CENTER);
         messageLabel.setVerticalAlignment(SwingConstants.CENTER);
         contentPane.add(messageLabel);
-
+    }
+    public void addLeftAns(String leftOpt,int height,int width,int truth){
         JButton choose1 = new JButton(leftOpt);
         Color color1 = new Color(146, 45, 18);
         choose1.setBackground(color1);
@@ -203,9 +191,13 @@ public class Game extends JFrame {
                 g.runGame();
             }
         });
+        contentPane.add(choose1);
 
+    }
+    public void addRightAns(String rightOpt,int height,int width,int truth){
         JButton choose2 = new JButton(rightOpt);
         //Color color1 = new Color(146,45,18);
+        Color color1 = new Color(146, 45, 18);
         choose2.setBackground(color1);
         choose2.setForeground(Color.white);
         choose2.setFont(new Font(font, Font.BOLD, height / 15));
@@ -255,11 +247,10 @@ public class Game extends JFrame {
                 g.runGame();
             }
         });
-        contentPane.add(choose1);
         contentPane.add(choose2);
 
-
-
+    }
+    public void addHint(Question_Answer q,int height){
         String ans=q.getCorrect_ans();
         JLabel answer = new JLabel(ans);
         answer.setBackground(color);
@@ -271,6 +262,7 @@ public class Game extends JFrame {
         answer.setVerticalAlignment(SwingConstants.CENTER);
         answer.setVisible(false);
         contentPane.add(answer);
+        Color color1 = new Color(146, 45, 18);
 
         JButton hint = new JButton("hint");
         //Color color1 = new Color(146,45,18);
@@ -287,6 +279,30 @@ public class Game extends JFrame {
             }
         });
         contentPane.add(hint);
+    }
+    public void runGame() {
+        int width = General.width;
+        int height = General.height;
+
+
+        addLivesLabel(height);
+        addScoreLabel(height);
+        addLevelLabel(height,width);
+        //get question and answers
+        Question_Answer q = questions.getQ();
+        Random rand = new Random();
+        int truth = rand.nextInt(2) + 1;
+        String leftOpt, rightOpt;
+        leftOpt = q.getCorrect_ans();
+        rightOpt = q.getWrong_ans();
+        if (truth == 2) {
+            leftOpt = q.getWrong_ans();
+            rightOpt = q.getCorrect_ans();
+        }
+        addQuestion(q,height,width);
+        addLeftAns(leftOpt,height,width,truth);
+        addRightAns(rightOpt,height,width,truth);
+        addHint(q,height);
         repaint();
     }
 
