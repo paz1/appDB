@@ -128,7 +128,7 @@ public class Game extends JFrame {
         messageLabel.setFont(new Font(font, Font.BOLD, height / 20));
         //messageLabel.setSize(new Dimension(height / 2, height / 3));
         //messageLabel.setLocation(width / 2-15, width / 18-30);
-        messageLabel.setBounds(2, 2, width + 120, height - 320);
+        messageLabel.setBounds(2, 5, width + 120, height - 320);
         messageLabel.setHorizontalAlignment(SwingConstants.CENTER);
         messageLabel.setVerticalAlignment(SwingConstants.CENTER);
         contentPane.add(messageLabel);
