@@ -2,7 +2,7 @@ package view;
 
 import model.Question_Answer;
 import model.queue_question;
-import controller.Details;
+import controller.controller;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -17,24 +17,24 @@ import java.util.TimerTask;
 public class Game extends JFrame {
     Color color = new Color(93,138,168);
     public static int flag=0;
-
     model.queue_question questions;
     String font="Comic Sans MS";
     JPanel contentPane;
     int count;
-
     int initialCount;
     JLabel timeLabel = new JLabel(" ");
     java.util.Timer timer = new Timer(true);
     Question_Answer question_answer;
-    public Game(int numoflife, queue_question queue_question,int initCount) {
+    controller controller;
+    public Game(controller controller, queue_question queue_question,int initCount) {
         super("quicky");
+        this.controller=controller;
         this.count = initCount;
-        this.initialCount = initCount;
+        this.initialCount = controller.getInitialCount();
         this.questions = queue_question;
         //questions = new GetQuest();
         setBackground(color);
-        Details.life = numoflife;
+        //Details.life = numoflife;
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         int width = General.width;
         int height = General.height;
@@ -59,24 +59,18 @@ public class Game extends JFrame {
                 timeLabel.setText(String.valueOf(count));
                 if (count == 0) {
                     //timer.cancel();
-                    Details.life--;
+
                     timer.cancel();
-                    if (Details.life == 0) {
-                        //todo facts
-                        //return ,gameover
+                    controller.wrong();
+                    if (controller.getLife() == 0) {
                         setVisible(false);
-                        //Component component = (Component) getSource();
                         JFrame frame = new JFrame();
-                        int s = Details.score;
-                        Facts f = new Facts(frame, true, s, questions,question_answer);
-                        Details.score = 0;
-                        flag=0;
-                        //level=1;
+                        int s=controller.getScore();
+                        Facts f = new Facts(controller,frame, true, s, questions,question_answer);
                         f.setVisible(true);
+                        controller.initGame();
                     } else {
-                        Game g = new Game(Details.life, questions,initialCount);
-                        //g.repaint();
-                        //g.pack();
+                        Game g = new Game(controller, questions,initialCount);
                         g.setVisible(true);
                         setVisible(false);
                         g.runGame();
@@ -92,7 +86,7 @@ public class Game extends JFrame {
     }
     public void addLivesLabel(int height){
         String str = "";
-        for (int i = 0; i < Details.life; i++) {
+        for (int i = 0; i < controller.getLife(); i++) {
             str += "♥";
         }
         JLabel livesLabel = new JLabel("<html>" + str + "</html>");
@@ -106,7 +100,7 @@ public class Game extends JFrame {
         contentPane.add(livesLabel);
     }
     public void addScoreLabel(int height){
-        JLabel scoreLabel = new JLabel("<html>" + "score: " + Details.score + "</html>");
+        JLabel scoreLabel = new JLabel("<html>" + "score: " + controller.getScore() + "</html>");
         scoreLabel.setBackground(color);
         scoreLabel.setForeground(Color.WHITE);
         scoreLabel.setFont(new Font(font, Font.BOLD, height / 20));
@@ -117,7 +111,7 @@ public class Game extends JFrame {
         contentPane.add(scoreLabel);
     }
     public void addLevelLabel(int height,int width){
-        JLabel Jlevel = new JLabel("<html>" + "level " + Details.level + "</html>");
+        JLabel Jlevel = new JLabel("<html>" + "level " + controller.getLevel() + "</html>");
         Jlevel.setBackground(color);
         Jlevel.setForeground(color.BLACK);
         Jlevel.setFont(new Font("Tahoma", Font.BOLD, height / 15));
@@ -156,37 +150,26 @@ public class Game extends JFrame {
             public void actionPerformed(ActionEvent arg0) {
                 timer.cancel();
                 if (isCorrect(1, truth)) {
-                    Details.score += 10;
-                    flag=flag+1;
-                    if (flag==5 ){
-                        flag=0;
-                        Details.level++;
-                        if(initialCount>3) {
-                            initialCount = initialCount - 1;
-                        }
-                    }
-                    count = initialCount;
-
+                    controller.correct();
+                    count = controller.getInitialCount();
 
                 } else {
-                    Details.life--;
-                    if (Details.life == 0) {
+                    controller.wrong();
+                    if (controller.getLife() == 0) {
                         //todo facts
                         //return ,gameover
                         setVisible(false);
                         Component component = (Component) arg0.getSource();
                         JFrame frame = (JFrame) SwingUtilities.getRoot(component);
-                        int s = Details.score;
-                        Facts f = new Facts(frame, true, s, questions,q);
-                        Details.score = 0;
-                        flag=0;
+                        int s=controller.getScore();
+                        Facts f = new Facts(controller,frame, true, s, questions,q);
                         f.setVisible(true);
-                        Details.level=1;
+                        controller.initGame();
                         return;
                     }
                 }
 
-                Game g = new Game(Details.life, questions,initialCount);
+                Game g = new Game(controller, questions,initialCount);
 //                g.setQ(questions);
                 g.setVisible(true);
                 setVisible(false);
@@ -214,37 +197,27 @@ public class Game extends JFrame {
                 //dialog.setVisible(true);
                 timer.cancel();
                 if (isCorrect(2, truth)) {
-                    Details.score += 10;
-                    flag=flag+1;
-                    if (flag==5 ){
-                        flag=0;
-                        Details.level++;
-                        if(initialCount>3) {
-                            initialCount = initialCount - 1;
-                        }
-                    }
-                    count = initialCount;
+                    controller.correct();
+                    count = controller.getInitialCount();
 
 
                 } else {
-                    Details.life--;
-                    if (Details.life == 0) {
+                    controller.wrong();
+                    if (controller.getLife() == 0) {
                         //todo facts
                         //return ,gameover
                         setVisible(false);
                         Component component = (Component) arg0.getSource();
                         JFrame frame = (JFrame) SwingUtilities.getRoot(component);
-                        int s = Details.score;
-                        Facts f = new Facts(frame, true, s, questions,q);
-                        Details.score = 0;
-                        flag=0;
-                        Details.level=1;
+                        int s=controller.getScore();
+                        Facts f = new Facts(controller,frame, true, s, questions,q);
                         f.setVisible(true);
+                        controller.initGame();
                         return;
                     }
                 }
 
-                Game g = new Game(Details.life, questions,initialCount);
+                Game g = new Game(controller, questions,initialCount);
 //                g.setQ(questions);
                 g.setVisible(true);
                 setVisible(false);

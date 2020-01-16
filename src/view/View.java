@@ -4,15 +4,16 @@ import model.Question_Answer;
 import model.queue_question;
 
 import java.awt.*;
+import controller.controller;
 
 public class View {
     MainWindow frame;
 
-    public void openWindow(queue_question queue_question){
+    public void openWindow(controller c,queue_question queue_question){
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    frame = new MainWindow(queue_question);
+                    frame = new MainWindow(c,queue_question);
                     frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();

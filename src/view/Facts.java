@@ -1,6 +1,6 @@
 package view;
 
-
+import controller.controller;
 import model.queue_question;
 
 import javax.swing.*;
@@ -17,7 +17,7 @@ import model.Question_Answer;
 
 public class Facts extends JDialog{
     Color color = new Color(178,132 ,190);
-    public Facts(Frame owner, boolean modal, int score, queue_question q,Question_Answer qu) {
+    public Facts(controller c,Frame owner, boolean modal, int score, queue_question q,Question_Answer qu) {
         super(owner, modal);
         setBackground(color);
         //int width = General.screenWidth / 3;
@@ -91,33 +91,11 @@ public class Facts extends JDialog{
         menuButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 setVisible(false);
-                MainWindow frame = new MainWindow(q);
+                MainWindow frame = new MainWindow(c,q);
                 frame.setVisible(true);
             }
 
         });
-//        JButton knowButton = new JButton("good to know");
-//        //Color color1 = new Color(146,45,18);
-//        knowButton.setBackground(color1);
-//        knowButton.setForeground(Color.ORANGE);
-//        knowButton.setFont(new Font("Tahoma", Font.BOLD, height / 15));
-//        knowButton.setBorder(new MatteBorder(2, 2, 2, 2, (Color) color.ORANGE));
-//        knowButton.setSize(new Dimension(height / 3, height / 3));
-//        knowButton.setLocation(height+100 , width / 6);
-//        knowButton.addActionListener(new ActionListener() {
-//            public void actionPerformed(ActionEvent arg0) {
-//                setVisible(false);
-//                MainWindow frame = new MainWindow(q);
-//                frame.setVisible(true);
-//            }
-//        });
-       // String know= Question_Answer q
-//        JLabel good_to_know = new JLabel("quicky");
-//        good_to_know.setForeground(new Color(146,45,18));
-//        good_to_know.setFont(new Font("Ariel", Font.BOLD, height /3));
-//        good_to_know.setSize(good_to_know.getPreferredSize());
-//        good_to_know.setLocation((width - good_to_know.getWidth()) / 2-20, height / 20-28);
-//        contentPane.add(good_to_know);
 
 
         JLabel scoreLabel = new JLabel("<html>" + "your score is: "+score + "</html>");
