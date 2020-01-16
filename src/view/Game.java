@@ -1,8 +1,8 @@
 package view;
 
-import model.GetQuest;
 import model.Question_Answer;
 import model.queue_question;
+import controller.Details;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -16,14 +16,13 @@ import java.util.TimerTask;
 
 public class Game extends JFrame {
     Color color = new Color(93,138,168);
-    public static int life;
-    public static int score = 0;
+    public static int flag=0;
+
     model.queue_question questions;
-    public static int level=1;
     String font="Comic Sans MS";
     JPanel contentPane;
     int count;
-    public static int flag=0;
+
     int initialCount;
     JLabel timeLabel = new JLabel(" ");
     java.util.Timer timer = new Timer(true);
@@ -35,7 +34,7 @@ public class Game extends JFrame {
         this.questions = queue_question;
         //questions = new GetQuest();
         setBackground(color);
-        life = numoflife;
+        Details.life = numoflife;
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         int width = General.width;
         int height = General.height;
@@ -60,22 +59,22 @@ public class Game extends JFrame {
                 timeLabel.setText(String.valueOf(count));
                 if (count == 0) {
                     //timer.cancel();
-                    life--;
+                    Details.life--;
                     timer.cancel();
-                    if (life == 0) {
+                    if (Details.life == 0) {
                         //todo facts
                         //return ,gameover
                         setVisible(false);
                         //Component component = (Component) getSource();
                         JFrame frame = new JFrame();
-                        int s = score;
+                        int s = Details.score;
                         Facts f = new Facts(frame, true, s, questions,question_answer);
-                        score = 0;
+                        Details.score = 0;
                         flag=0;
                         //level=1;
                         f.setVisible(true);
                     } else {
-                        Game g = new Game(life, questions,initialCount);
+                        Game g = new Game(Details.life, questions,initialCount);
                         //g.repaint();
                         //g.pack();
                         g.setVisible(true);
@@ -93,7 +92,7 @@ public class Game extends JFrame {
     }
     public void addLivesLabel(int height){
         String str = "";
-        for (int i = 0; i < life; i++) {
+        for (int i = 0; i < Details.life; i++) {
             str += "♥";
         }
         JLabel livesLabel = new JLabel("<html>" + str + "</html>");
@@ -107,7 +106,7 @@ public class Game extends JFrame {
         contentPane.add(livesLabel);
     }
     public void addScoreLabel(int height){
-        JLabel scoreLabel = new JLabel("<html>" + "score: " + score + "</html>");
+        JLabel scoreLabel = new JLabel("<html>" + "score: " + Details.score + "</html>");
         scoreLabel.setBackground(color);
         scoreLabel.setForeground(Color.WHITE);
         scoreLabel.setFont(new Font(font, Font.BOLD, height / 20));
@@ -118,7 +117,7 @@ public class Game extends JFrame {
         contentPane.add(scoreLabel);
     }
     public void addLevelLabel(int height,int width){
-        JLabel Jlevel = new JLabel("<html>" + "level " + level + "</html>");
+        JLabel Jlevel = new JLabel("<html>" + "level " + Details.level + "</html>");
         Jlevel.setBackground(color);
         Jlevel.setForeground(color.BLACK);
         Jlevel.setFont(new Font("Tahoma", Font.BOLD, height / 15));
@@ -157,11 +156,11 @@ public class Game extends JFrame {
             public void actionPerformed(ActionEvent arg0) {
                 timer.cancel();
                 if (isCorrect(1, truth)) {
-                    score += 10;
+                    Details.score += 10;
                     flag=flag+1;
                     if (flag==5 ){
                         flag=0;
-                        level++;
+                        Details.level++;
                         if(initialCount>3) {
                             initialCount = initialCount - 1;
                         }
@@ -170,24 +169,24 @@ public class Game extends JFrame {
 
 
                 } else {
-                    life--;
-                    if (life == 0) {
+                    Details.life--;
+                    if (Details.life == 0) {
                         //todo facts
                         //return ,gameover
                         setVisible(false);
                         Component component = (Component) arg0.getSource();
                         JFrame frame = (JFrame) SwingUtilities.getRoot(component);
-                        int s = score;
+                        int s = Details.score;
                         Facts f = new Facts(frame, true, s, questions,q);
-                        score = 0;
+                        Details.score = 0;
                         flag=0;
                         f.setVisible(true);
-                        level=1;
+                        Details.level=1;
                         return;
                     }
                 }
 
-                Game g = new Game(life, questions,initialCount);
+                Game g = new Game(Details.life, questions,initialCount);
 //                g.setQ(questions);
                 g.setVisible(true);
                 setVisible(false);
@@ -215,11 +214,11 @@ public class Game extends JFrame {
                 //dialog.setVisible(true);
                 timer.cancel();
                 if (isCorrect(2, truth)) {
-                    score += 10;
+                    Details.score += 10;
                     flag=flag+1;
                     if (flag==5 ){
                         flag=0;
-                        level++;
+                        Details.level++;
                         if(initialCount>3) {
                             initialCount = initialCount - 1;
                         }
@@ -228,24 +227,24 @@ public class Game extends JFrame {
 
 
                 } else {
-                    life--;
-                    if (life == 0) {
+                    Details.life--;
+                    if (Details.life == 0) {
                         //todo facts
                         //return ,gameover
                         setVisible(false);
                         Component component = (Component) arg0.getSource();
                         JFrame frame = (JFrame) SwingUtilities.getRoot(component);
-                        int s = score;
+                        int s = Details.score;
                         Facts f = new Facts(frame, true, s, questions,q);
-                        score = 0;
+                        Details.score = 0;
                         flag=0;
-                        level=1;
+                        Details.level=1;
                         f.setVisible(true);
                         return;
                     }
                 }
 
-                Game g = new Game(life, questions,initialCount);
+                Game g = new Game(Details.life, questions,initialCount);
 //                g.setQ(questions);
                 g.setVisible(true);
                 setVisible(false);
