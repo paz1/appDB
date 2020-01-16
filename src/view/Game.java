@@ -233,11 +233,12 @@ public class Game extends JFrame {
         answer.setBackground(color);
         answer.setForeground(Color.WHITE);
         answer.setFont(new Font(font, Font.BOLD, height / 20));
-        answer.setSize(new Dimension(height / 2, height / 3 - 40));
+        answer.setSize(new Dimension(height / 2, height / 3 ));
         answer.setLocation(10, height / 2-50);
         answer.setHorizontalAlignment(SwingConstants.CENTER);
         answer.setVerticalAlignment(SwingConstants.CENTER);
         answer.setVisible(false);
+        //answer.setHorizontalAlignment(JLabel.CENTER);
         contentPane.add(answer);
         Color color1 = new Color(146, 45, 18);
 
