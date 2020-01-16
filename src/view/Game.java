@@ -15,12 +15,12 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class Game extends JFrame {
-    Color color = new Color(255, 153, 229);
+    Color color = new Color(93,138,168);
     public static int life;
     public static int score = 0;
     model.queue_question questions;
     public static int level=1;
-
+    String font="Comic Sans MS";
     JPanel contentPane;
     int count;
     public static int flag=0;
@@ -45,7 +45,7 @@ public class Game extends JFrame {
 
         timeLabel.setBackground(color);
         timeLabel.setForeground(Color.WHITE);
-        timeLabel.setFont(new Font("Comic Sans MS", Font.BOLD, height / 20));
+        timeLabel.setFont(new Font(font, Font.BOLD, height / 20));
         timeLabel.setSize(new Dimension(height / 2, height / 3 + 40));
         timeLabel.setLocation(10, 27);
         timeLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -102,7 +102,7 @@ public class Game extends JFrame {
         JLabel livesLabel = new JLabel("<html>" + str + "</html>");
         livesLabel.setBackground(color);
         livesLabel.setForeground(Color.WHITE);
-        livesLabel.setFont(new Font("Comic Sans MS", Font.BOLD, height / 20));
+        livesLabel.setFont(new Font(font, Font.BOLD, height / 20));
         livesLabel.setSize(new Dimension(height / 2, height / 3));
         livesLabel.setLocation(10, 18);
         livesLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -112,7 +112,7 @@ public class Game extends JFrame {
         JLabel scoreLabel = new JLabel("<html>" + "score: " + score + "</html>");
         scoreLabel.setBackground(color);
         scoreLabel.setForeground(Color.WHITE);
-        scoreLabel.setFont(new Font("Comic Sans MS", Font.BOLD, height / 20));
+        scoreLabel.setFont(new Font(font, Font.BOLD, height / 20));
         scoreLabel.setSize(new Dimension(height / 2, height / 3 - 40));
         scoreLabel.setLocation(10, 10);
         scoreLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -121,7 +121,7 @@ public class Game extends JFrame {
 
         JLabel Jlevel = new JLabel("<html>" + "level " + level + "</html>");
         Jlevel.setBackground(color);
-        Jlevel.setForeground(color.ORANGE);
+        Jlevel.setForeground(color.BLACK);
         Jlevel.setFont(new Font("Tahoma", Font.BOLD, height / 15));
         Jlevel.setSize(new Dimension(height / 2, height / 3 - 100));
         Jlevel.setLocation(width/2-70, 8);
@@ -144,7 +144,7 @@ public class Game extends JFrame {
         JLabel messageLabel = new JLabel(q.getQuestion());
         messageLabel.setBackground(color);
         messageLabel.setForeground(Color.WHITE);
-        messageLabel.setFont(new Font("Comic Sans MS", Font.BOLD, height / 20));
+        messageLabel.setFont(new Font(font, Font.BOLD, height / 20));
         //messageLabel.setSize(new Dimension(height / 2, height / 3));
         //messageLabel.setLocation(width / 2-15, width / 18-30);
         messageLabel.setBounds(2, 2, width + 120, height - 320);
@@ -155,9 +155,9 @@ public class Game extends JFrame {
         JButton choose1 = new JButton(leftOpt);
         Color color1 = new Color(146, 45, 18);
         choose1.setBackground(color1);
-        choose1.setForeground(Color.ORANGE);
-        choose1.setFont(new Font("Comic Sans MS", Font.BOLD, height / 15));
-        choose1.setBorder(new MatteBorder(2, 2, 2, 2, (Color) color.ORANGE));
+        choose1.setForeground(Color.white);
+        choose1.setFont(new Font(font, Font.BOLD, height / 15));
+        choose1.setBorder(new MatteBorder(2, 2, 2, 2, (Color) color.WHITE));
         choose1.setSize(new Dimension(height / 2, height / 2));
         choose1.setLocation(height / 2, width / 6);
         choose1.setFocusPainted(false);
@@ -207,9 +207,9 @@ public class Game extends JFrame {
         JButton choose2 = new JButton(rightOpt);
         //Color color1 = new Color(146,45,18);
         choose2.setBackground(color1);
-        choose2.setForeground(Color.ORANGE);
-        choose2.setFont(new Font("Comic Sans MS", Font.BOLD, height / 15));
-        choose2.setBorder(new MatteBorder(2, 2, 2, 2, (Color) color.ORANGE));
+        choose2.setForeground(Color.white);
+        choose2.setFont(new Font(font, Font.BOLD, height / 15));
+        choose2.setBorder(new MatteBorder(2, 2, 2, 2, (Color) color.white));
         choose2.setSize(new Dimension(height / 2, height / 2));
         choose2.setLocation(width - height / 2 - width / 10, width / 6);
         choose2.addActionListener(new ActionListener() {
@@ -264,7 +264,7 @@ public class Game extends JFrame {
         JLabel answer = new JLabel(ans);
         answer.setBackground(color);
         answer.setForeground(Color.WHITE);
-        answer.setFont(new Font("Comic Sans MS", Font.BOLD, height / 20));
+        answer.setFont(new Font(font, Font.BOLD, height / 20));
         answer.setSize(new Dimension(height / 2, height / 3 - 40));
         answer.setLocation(10, height / 2-50);
         answer.setHorizontalAlignment(SwingConstants.CENTER);
@@ -275,9 +275,9 @@ public class Game extends JFrame {
         JButton hint = new JButton("hint");
         //Color color1 = new Color(146,45,18);
         hint.setBackground(color1);
-        hint.setForeground(Color.ORANGE);
-        hint.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
-        hint.setBorder(new MatteBorder(2, 2, 2, 2, (Color) color.ORANGE));
+        hint.setForeground(Color.orange);
+        hint.setFont(new Font(font, Font.BOLD, 15));
+        hint.setBorder(new MatteBorder(2, 2, 2, 2, (Color) color.white));
         hint.setSize(new Dimension(40, 40));
         hint.setLocation(20, height / 2);
         hint.setFocusPainted(false);
