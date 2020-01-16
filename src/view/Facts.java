@@ -16,7 +16,7 @@ import static java.lang.System.exit;
 import model.Question_Answer;
 
 public class Facts extends JDialog{
-    Color color = new Color(131,24 ,11);
+    Color color = new Color(178,132 ,190);
     public Facts(Frame owner, boolean modal, int score, queue_question q,Question_Answer qu) {
         super(owner, modal);
         setBackground(color);
@@ -32,11 +32,12 @@ public class Facts extends JDialog{
         contentPane.setLayout(null);
         //did you know:
         String know=qu.getGood_to_know();
-        JLabel messageLabel = new JLabel("<html><div style='text-align: center;'>"+"good to know:" +"<br>"+know+"</html>");
+        JLabel messageLabel = new JLabel("<html><div style='text-align: center;'>"+"good to know!" +"<br>"+know+"</html>");
         messageLabel.setBackground(color);
-        messageLabel.setForeground(Color.orange);
-        messageLabel.setFont(new Font("Tahoma", Font.BOLD, height / 18));
         Color color1 = new Color(146, 45, 18);
+        messageLabel.setForeground(color.WHITE);
+        messageLabel.setFont(new Font("Comic Sans MS", Font.BOLD, height / 20));
+
         //messageLabel.setBorder(new MatteBorder(2, 2, 2, 2,);
         messageLabel.setSize(new Dimension(height*2 , height / 3-20));
         messageLabel.setLocation(width / 3-150, width / 3+2);
@@ -52,7 +53,7 @@ public class Facts extends JDialog{
         //Color color1 = new Color(146,45,18);
         //Color color1 = new Color(146, 45, 18);
         exitGame.setBackground(color1);
-        exitGame.setForeground(Color.ORANGE);
+        exitGame.setForeground(Color.WHITE);
         exitGame.setFont(new Font("Tahoma", Font.BOLD, height / 15));
         exitGame.setBorder(new MatteBorder(2, 2, 2, 2, (Color) color.PINK));
         exitGame.setSize(new Dimension(height / 2, height / 2-65));
@@ -67,7 +68,7 @@ public class Facts extends JDialog{
         JButton menuButton = new JButton("back to menu");
         //Color color1 = new Color(146,45,18);
         menuButton.setBackground(color1);
-        menuButton.setForeground(Color.ORANGE);
+        menuButton.setForeground(Color.WHITE);
         menuButton.setFont(new Font("Tahoma", Font.BOLD, height / 15));
         menuButton.setBorder(new MatteBorder(2, 2, 2, 2, (Color) color.PINK));
         menuButton.setSize(new Dimension(height / 2, height / 2-65));
@@ -119,7 +120,7 @@ public class Facts extends JDialog{
 
         JLabel scoreLabel = new JLabel("<html>" + "your score is: "+score + "</html>");
         scoreLabel.setBackground(color);
-        scoreLabel.setForeground(Color.WHITE);
+        scoreLabel.setForeground(color1);
         scoreLabel.setFont(new Font("Tahoma", Font.BOLD, height / 13));
         scoreLabel.setSize(new Dimension(width/2+440, height/3-45 ));
         //scoreLabel.setLocation(width / 2-200, 20);
