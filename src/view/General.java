@@ -5,9 +5,11 @@ import java.awt.Toolkit;
 
 public class General {
     /** width of the main window */
-    final static public int width = Toolkit.getDefaultToolkit().getScreenSize().width / 2;
+   // final static public int width = Toolkit.getDefaultToolkit().getScreenSize().width / 2;
+    final static public int width = 960;
     /** height of the main window */
-    final static public int height = Toolkit.getDefaultToolkit().getScreenSize().height /2;
+    final static public int height = 540;
+    //final static public int height = Toolkit.getDefaultToolkit().getScreenSize().height /2;
     final static public int screenWidth = Toolkit.getDefaultToolkit().getScreenSize().width;
     final static public int screenHeight = Toolkit.getDefaultToolkit().getScreenSize().height;
     /** the hight of label */
