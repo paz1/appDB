@@ -28,10 +28,31 @@ public class Question_Answer {
 
     public int getLength_ans_co() {
         int num= (this.correct_ans).split(" ").length;
+
         return num;
     }
+    public boolean corrct_too_long() {
+        String[] num= (this.correct_ans).split(" ");
+
+        for (int i=0;i<num.length;i++){
+            if ((num[i]).length()>8){
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean wrong_too_long() {
+        String[] num= (this.wrong_ans).split(" ");
+
+        for (int i=0;i<num.length;i++){
+            if ((num[i]).length()>8){
+                return true;
+            }
+        }
+        return false;
+    }
     public int getLength_ans_wr() {
-        int num= (this.correct_ans).split(" ").length;
+        int num= (this.wrong_ans).split(" ").length;
         return num;
     }
 
