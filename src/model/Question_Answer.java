@@ -41,6 +41,7 @@ public class Question_Answer {
         }
         return false;
     }
+
     public boolean wrong_too_long() {
         String[] num= (this.wrong_ans).split(" ");
 
@@ -79,14 +80,17 @@ public class Question_Answer {
     private String  filterQue(String str){
         String[] splitStr=str.split(" ");
         String ans=("<html><div style='text-align: center;'>" );
+        int rownum=0;
         for (int i=0;i<splitStr.length;i++){
             ans+=splitStr[i];
+            rownum+=splitStr[i].length()+1;
             ans+=" ";
-            if (i==6){
+            if (i==6||rownum>32){
                 ans+="<br>";
+                rownum=0;
             }
         }
-        ans+="<br>";
+        //ans+="<br>";
         ans+="</html>";
         return ans;
     }
