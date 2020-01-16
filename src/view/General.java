@@ -10,10 +10,10 @@ public class General {
     /** height of the main window */
     final static public int height = 540;
     //final static public int height = Toolkit.getDefaultToolkit().getScreenSize().height /2;
-    //final static public int screenWidth = Toolkit.getDefaultToolkit().getScreenSize().width;
-    final static public int screenWidth = 1920;
-    //final static public int screenHeight = Toolkit.getDefaultToolkit().getScreenSize().height;
-    final static public int screenHeight = 1080;
+    final static public int screenWidth = Toolkit.getDefaultToolkit().getScreenSize().width;
+    //final static public int screenWidth = 1920;
+    final static public int screenHeight = Toolkit.getDefaultToolkit().getScreenSize().height;
+    //final static public int screenHeight = 1080;
 //    /** the hight of label */
     //final static public int labelHeight = height / 40;
 //    /** the hight of a field */
