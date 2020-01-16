@@ -38,10 +38,10 @@ public class Facts extends JDialog{
         messageLabel.setFont(new Font("Tahoma", Font.BOLD, height / 18));
         Color color1 = new Color(146, 45, 18);
         //messageLabel.setBorder(new MatteBorder(2, 2, 2, 2,);
-        messageLabel.setSize(new Dimension(height , height / 3-20));
-        messageLabel.setLocation(width / 3-110, width / 3+2);
-        messageLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        messageLabel.setVerticalAlignment(SwingConstants.CENTER);
+        messageLabel.setSize(new Dimension(height*2 , height / 3-20));
+        messageLabel.setLocation(width / 3-150, width / 3+2);
+        //messageLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        //messageLabel.setVerticalAlignment(SwingConstants.CENTER);
 
         contentPane.add(messageLabel);
 
