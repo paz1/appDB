@@ -70,7 +70,7 @@ public class Game extends JFrame {
                         //Component component = (Component) getSource();
                         JFrame frame = new JFrame();
                         int s = score;
-                        Facts f = new Facts(frame, true, s, questions);
+                        Facts f = new Facts(frame, true, s, questions,question_answer);
                         score = 0;
                         //level=1;
                         f.setVisible(true);
