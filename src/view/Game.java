@@ -27,12 +27,13 @@ public class Game extends JFrame {
     int initialCount;
     JLabel timeLabel = new JLabel(" ");
     java.util.Timer timer = new Timer(true);
-
+    Question_Answer question_answer;
     public Game(int numoflife, queue_question queue_question,int initCount) {
         super("quicky");
         this.count = initCount;
         this.initialCount = initCount;
         this.questions = queue_question;
+
         //questions = new GetQuest();
         setBackground(color);
         life = numoflife;
@@ -140,6 +141,7 @@ public class Game extends JFrame {
         contentPane.add(messageLabel);
     }
     public void addLeftAns(String leftOpt,int height,int width,int truth){
+        Question_Answer q=question_answer;
         JButton choose1 = new JButton(leftOpt);
         Color color1 = new Color(146, 45, 18);
         choose1.setBackground(color1);
@@ -176,7 +178,7 @@ public class Game extends JFrame {
                         Component component = (Component) arg0.getSource();
                         JFrame frame = (JFrame) SwingUtilities.getRoot(component);
                         int s = score;
-                        Facts f = new Facts(frame, true, s, questions);
+                        Facts f = new Facts(frame, true, s, questions,q);
                         score = 0;
                         f.setVisible(true);
                         level=1;
@@ -195,6 +197,7 @@ public class Game extends JFrame {
 
     }
     public void addRightAns(String rightOpt,int height,int width,int truth){
+        Question_Answer q=question_answer;
         JButton choose2 = new JButton(rightOpt);
         //Color color1 = new Color(146,45,18);
         Color color1 = new Color(146, 45, 18);
@@ -232,7 +235,7 @@ public class Game extends JFrame {
                         Component component = (Component) arg0.getSource();
                         JFrame frame = (JFrame) SwingUtilities.getRoot(component);
                         int s = score;
-                        Facts f = new Facts(frame, true, s, questions);
+                        Facts f = new Facts(frame, true, s, questions,q);
                         score = 0;
                         level=1;
                         f.setVisible(true);
@@ -290,6 +293,7 @@ public class Game extends JFrame {
         addLevelLabel(height,width);
         //get question and answers
         Question_Answer q = questions.getQ();
+        question_answer=q;
         Random rand = new Random();
         int truth = rand.nextInt(2) + 1;
         String leftOpt, rightOpt;
