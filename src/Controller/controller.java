@@ -1,10 +1,8 @@
 package controller;
 
-import DB.JDBC;
 import model.*;
 import view.View;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class controller {
@@ -26,10 +24,13 @@ public class controller {
                 continue;
             }
             int db_q = rand.nextInt(my_question.get_size());
+            db_q = 1;
             Question_Answer q_a=model.get_question(db_q);
+            System.out.println("*************************************************");
             if(q_a==null){
                 continue;
             }
+
 
             q.add_to_list(q_a);
             int x = 5;
