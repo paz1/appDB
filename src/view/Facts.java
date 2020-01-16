@@ -38,9 +38,9 @@ public class Facts extends JDialog{
         messageLabel.setForeground(color.WHITE);
         messageLabel.setFont(new Font("Comic Sans MS", Font.BOLD, height / 20));
 
-        //messageLabel.setBorder(new MatteBorder(2, 2, 2, 2,);
+        messageLabel.setBorder(new MatteBorder(2, 2, 2, 2,color));
         messageLabel.setSize(new Dimension(height*2 , height / 3-20));
-        messageLabel.setLocation(width / 3-150, width / 3+2);
+        messageLabel.setLocation(width / 3+70, width / 3+2);
         //messageLabel.setHorizontalAlignment(SwingConstants.CENTER);
         //messageLabel.setVerticalAlignment(SwingConstants.CENTER);
 
