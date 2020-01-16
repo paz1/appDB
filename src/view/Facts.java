@@ -32,10 +32,10 @@ public class Facts extends JDialog{
         contentPane.setLayout(null);
         //did you know:
         String know=qu.getGood_to_know();
-        JLabel messageLabel = new JLabel("<html><div style='text-align: center;'>"+"good to know:" +"<br>"+know+"</html>");
+        JLabel messageLabel = new JLabel("<html><div style='text-align: center;'>"+"good to know!" +"<br>"+know+"</html>");
         messageLabel.setBackground(color);
         messageLabel.setForeground(Color.orange);
-        messageLabel.setFont(new Font("Tahoma", Font.BOLD, height / 18));
+        messageLabel.setFont(new Font("Tahoma", Font.BOLD, height / 20));
         Color color1 = new Color(146, 45, 18);
         //messageLabel.setBorder(new MatteBorder(2, 2, 2, 2,);
         messageLabel.setSize(new Dimension(height , height / 3-20));
