@@ -1,7 +1,7 @@
 package view;
 
 import model.GetQuest;
-import model.Model;
+
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
