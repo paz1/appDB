@@ -1,5 +1,8 @@
 package view;
 
+import model.Question_Answer;
+import model.queue_question;
+import controller.controller;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -13,6 +16,8 @@ import java.net.URL;
 
 public class MainWindow extends JFrame {
 	Color color = new Color(89,131 ,130);
+	Game g;
+	controller c;
 	/**
 	 * Launch the application.
 	 */
@@ -20,7 +25,60 @@ public class MainWindow extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MainWindow frame = new MainWindow();
+					queue_question q=new queue_question();
+					q.add_to_list(new Question_Answer("what is  gr gd gds gd gsd sg ge gewg my name?","pfshhf ff az","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","the singer michael jackson lives in hunululu and dont like to play"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					q.add_to_list(new Question_Answer("what is my name?","paz","tehila","jd"));
+					controller c=new controller();
+					MainWindow frame = new MainWindow(c,q);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -29,12 +87,14 @@ public class MainWindow extends JFrame {
 		});
 	}
 
+
+
 	/**
 	 * Create the frame.
 	 */
-	public MainWindow() {
+	public MainWindow(controller controller,queue_question queue_question) {
 		super("quicky");
-
+		c=controller;
 		setBackground(color);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		int width = General.width;
@@ -86,7 +146,7 @@ public class MainWindow extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				//Component component = (Component) arg0.getSource();
 				setVisible(false);
-				Game g = new Game(3);
+				g = new Game(c,queue_question,11);
 				g.setVisible(true);
 				g.runGame();
 			}
