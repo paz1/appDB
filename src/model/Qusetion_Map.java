@@ -11,7 +11,7 @@ public class Qusetion_Map {
         this.qusetion.put(0,"which singer has more songs");
         this.qusetion.put(1,"Which year the song was released");
         this.qusetion.put(2,"Where the singer lives");
-        this.qusetion.put(3,"who sing the song");
+        this.qusetion.put(3,"who sings the song: ");
         this.qusetion.put(4,"Which album does the song belong to");
 
     }

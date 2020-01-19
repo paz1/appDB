@@ -38,7 +38,7 @@ public class Make_Info {
                 }
 
                 String ret = "Which album does the song "+"\""+ cur_ans.get(1)+"\""+" belong to?";
-                String good = "The song "+"\""+ fake_ans.get(1)+"\""+" belong to the album "+"\""+ fake_ans.get(0)+"\"";
+                String good = "The song "+"\""+ fake_ans.get(1)+"\""+" belongs to the "+"\""+ fake_ans.get(0)+"\""+" album";
                 return new Question_Answer( ret,cur_ans.get(0),fake_ans.get(0),good);
 
 
@@ -110,7 +110,7 @@ public class Make_Info {
                     }
                     stop++;
                 }
-                String ques ="Which year the song "+"\""+ cur_ans.get(0)+"\""+"  was released?";
+                String ques ="In which year was the song "+"\""+ cur_ans.get(0)+"\""+" released?";
 
                 String good = "The song "+"\""+ fake_ans.get(0)+"\""+" was released in "+fake_ans.get(1);
                 return new Question_Answer( ques,cur_ans.get(1),fake_ans.get(1),good);
@@ -142,8 +142,8 @@ public class Make_Info {
                     stop++;
                 }
 
-                String ques ="Where the singer "+"\""+ cur_ans.get(0)+"\""+"  lives?";
-                String goood = "The singer "+"\""+ fake_ans.get(0)+"\""+" live in "+fake_ans.get(1);
+                String ques ="Where does the singer "+"\""+ cur_ans.get(0)+"\""+"  live?";
+                String goood = "The singer "+"\""+ fake_ans.get(0)+"\""+" lives in "+fake_ans.get(1);
                 return new Question_Answer( ques,cur_ans.get(1),fake_ans.get(1),goood);
             }
         });
@@ -174,7 +174,7 @@ public class Make_Info {
                     }
                     stop++;
                 }
-                String goood ="\""+ fake_ans.get(0)+"\""+" sing "+"\""+fake_ans.get(1)+"\"";
+                String goood ="\""+ fake_ans.get(0)+"\""+" sings "+"\""+fake_ans.get(1)+"\"";
                 String ques =Qusetion_Map.getInstance().get_question_to_DB(3)+" "+"\""+ cur_ans.get(1)+"\""+"?";
                 return new Question_Answer( ques,cur_ans.get(0),fake_ans.get(0),goood);
             }
