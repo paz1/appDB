@@ -1,13 +1,9 @@
-package Controller;
+package controller;
 
 import model.*;
 import view.View;
 
 import java.util.Random;
-
-/**
- * this is the contoller of the program
- */
 
 public class controller {
 
@@ -15,33 +11,38 @@ public class controller {
     public controller(){
         this.model = new Main_model();
     }
-    //we run the game
-    public void run_game(){
-        // a queue of the question
-        queue_question q=new queue_question();
-        // open the view
-        View v = new View();
-        v.openWindow(this,q);
 
+    /**
+     * the contrioller responsible for all the abstract logic
+     */
+    public void run_game(){
+
+        queue_question q=new queue_question();
+        View v = new View();
         Qusetion_Map my_question = Qusetion_Map.getInstance();
         Random rand = new Random();
+        for (int i=0;i<5;i++){
+            int db_q = rand.nextInt(my_question.get_size());
+            Question_Answer q_a=model.get_question(db_q);
+            q.add_to_list(q_a);
+        }
+        v.openWindow(this,q);
+
+
 
         while (true){
             if (q.sizel()==100){
                 continue;
             }
-            //pick a random qusetion
             int db_q = rand.nextInt(my_question.get_size());
-            //db_q = 1;
             Question_Answer q_a=model.get_question(db_q);
-            System.out.println("*************************************************");
             if(q_a==null){
                 continue;
             }
 
 
             q.add_to_list(q_a);
-            int x = 5;
+
         }
     }
     public void initGame(){

@@ -6,6 +6,10 @@ import model.Question_Answer;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * class that hold list of "question" to the game
+ */
 public class queue_question {
     private List<Question_Answer> my_list  =new ArrayList<>();
 

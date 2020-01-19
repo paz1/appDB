@@ -3,14 +3,14 @@ package model;
 import java.util.*;
 
 /**
- * this class is incharch to make  from the data a qution to the game
+ * this class is incharch to make  from the data a question to the game
  */
 
 public class Make_Info {
     //the map each qution has a function that fits to the needs
     private Map<Integer, MyParser> map_question = new HashMap<Integer, MyParser>();
     //this function enter to the map a key of qution and function
-    private Make_Info(){
+    public Make_Info(){
         this.init_map();
     }
 
