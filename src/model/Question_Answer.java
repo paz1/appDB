@@ -2,6 +2,11 @@ package model;
 
 import java.util.Vector;
 
+/**
+ * this class is create the answer the wrong answer and a good to know feelds if the player
+ * loss
+ */
+
 public class Question_Answer {
     private String question;
     private String correct_ans;

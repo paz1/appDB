@@ -3,8 +3,13 @@ package model;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * this class map the number to the right qusetion that going to be on the screen of the game
+ * this is a singelton class we want all the program to know that map
+ */
+
 public class Qusetion_Map {
-    Map<Integer,String> qusetion = new HashMap<Integer,String>();
+    private Map<Integer,String> qusetion = new HashMap<Integer,String>();
     private static Qusetion_Map single_instance = null;
 
     private Qusetion_Map(){
@@ -15,6 +20,11 @@ public class Qusetion_Map {
         this.qusetion.put(4,"Which album does the song belong to");
 
     }
+
+    /**
+     * the singelton
+     * @return instance of the Qusetion_Map
+     */
 
     public static Qusetion_Map getInstance()
     {

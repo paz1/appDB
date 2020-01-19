@@ -7,7 +7,9 @@ import model.Question_Answer;
 import java.sql.*;
 import java.util.*;
 
-
+/**
+ * this class in incharch to do all the things with the data base
+ */
 public class JDBC {
     private String user_name;
     private String password;
@@ -18,32 +20,40 @@ public class JDBC {
     private Map<Integer, String> map_question = new HashMap<Integer, String>();
 
 
-
+    //constractor
     public JDBC(String user_name,String password,String port,String schema_name){
         this.port = port;
         this.schema_name = schema_name;
         this.password = password;
         this.user_name = user_name;
+       //set this map with the query
         this.set_dict();
         this.conn = null;
         this.connect = false;
     }
 
+    /**
+     * this is set all the query in a map
+     */
     private void set_dict(){
-
+        //it return a table of artsist a number of songs the singer has
         this.map_question.put(0,"SELECT artists.ArtistName,COUNT(songs.ArtistID) as" +
                 " ll FROM artists Join songs ON songs.ArtistID = artists.ArtistID GROUP BY songs.ArtistID ORDER BY ll DESC");
-        //this.map_question.put(1,"SELECT Title ,Year FROM artists a Join songs s ON a.ArtistID = s.ArtistID Join (SELECT singer FROM bestsingers ORDER BY RAND() LIMIT 1) as t ON t.singer = a.ArtistName");
+        //it return a table of singers and place they live
         this.map_question.put(2, "SELECT ArtistName,ArtistLocation FROM artists WHERE ArtistHotness > 0.6 AND ArtistLocation NOT LIKE '-'");
-        //this.map_question.put(3, "SELECT ArtistName ,Title FROM artists a Join songs s ON a.ArtistID = s.ArtistID Join bestsingers b ON b.singer = a.ArtistName");
+        //it return a table of album and songs
         this.map_question.put(4,"SELECT albums.AlbumName , songs.Title FROM albums JOIN songs ON albums.AlbumID = songs.AlbumID WHERE songs.SongHotttnesss > 0.7");
+        //it return table of songs and the year that each song was relesed
         this.map_question.put(1,"SELECT Title ,Year,ArtistName FROM artists a Join songs s ON a.ArtistID = s.ArtistID Join (SELECT ArtistID FROM bestsingers ORDER BY RAND() LIMIT 1) as t ON t. ArtistID = a. ArtistID");
-
+        //return a table of singer and all the singer songs
         this.map_question.put(3, "SELECT ArtistName ,Title FROM artists a Join songs s ON a.ArtistID = s.ArtistID Join bestsingers b ON b. ArtistID = a. ArtistID ");
     }
 
 
-
+    /**
+     * this function conecction to the mysql server
+     * @return a boolean if the connection failed or not
+     */
     public boolean connection(){
         String url = "jdbc:mysql://localhost:"+this.port+"/"+this.schema_name;
 
@@ -60,24 +70,28 @@ public class JDBC {
 
     }
 
-
+    /**
+     * this function take the qurey from the map and return what the sql return
+     * @param question number of query we need
+     * @return the table the sql return as a list
+     */
     public ArrayList<ArrayList<String>> get_ans(Integer question){
 
         //question = "Which album does the song belong to";
         ArrayList<ArrayList<String>> listOLists = get_info_from_db(this.map_question.get(question));
         return listOLists;
     }
+
+    /**
+     * this fuction ask the sql the query
+     * @param query the query to the sql
+     * @return the table ad arraylist
+     */
     private ArrayList<ArrayList<String>> get_info_from_db(String query){
-
-
-        List<String> res = new ArrayList<>();
         int i  = 0;
-        //String sql ="SELECT song_id FROM songs_generes WHERE albums.songs_generes.genre='hip hop'";
-
-
-
             try {
 
+                //try to 'speek' with the sql
                 Statement stmt = this.conn.createStatement();
                 ResultSet rs = stmt.executeQuery(query);
 
@@ -87,6 +101,7 @@ public class JDBC {
                 ArrayList<ArrayList<String>> listOLists = new ArrayList<ArrayList<String>>();
                 rs.first();
 
+                //take the table and make it list
                 while (rs.next()) {
                     ArrayList<String> mini_list= new ArrayList<String>();
                     for(int j = 1;j<=columnsNumber;j++){
@@ -118,7 +133,10 @@ public class JDBC {
 
     }
 
-
+    /**
+     * this function close the connection to the sql
+     * @return a boolean if it seccssed or not
+     */
     public boolean close_conn(){
         if (this.connect){
             try {

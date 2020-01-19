@@ -2,10 +2,15 @@ package model;
 
 import java.util.*;
 
-public class Make_Info {
-    private Map<Integer, MyParser> map_question = new HashMap<Integer, MyParser>();
+/**
+ * this class is incharch to make  from the data a qution to the game
+ */
 
-    public Make_Info(){
+public class Make_Info {
+    //the map each qution has a function that fits to the needs
+    private Map<Integer, MyParser> map_question = new HashMap<Integer, MyParser>();
+    //this function enter to the map a key of qution and function
+    private Make_Info(){
         this.init_map();
     }
 
@@ -185,7 +190,7 @@ public class Make_Info {
 
 
     }
-
+    //this function get the right answer and return it to the view to play this in the game
     public Question_Answer get_The_Info(int question, ArrayList<ArrayList<String>> lines){
 
         return this.map_question.get(question).Parse(lines);

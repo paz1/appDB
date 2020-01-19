@@ -1,9 +1,13 @@
-package controller;
+package Controller;
 
 import model.*;
 import view.View;
 
 import java.util.Random;
+
+/**
+ * this is the contoller of the program
+ */
 
 public class controller {
 
@@ -11,11 +15,14 @@ public class controller {
     public controller(){
         this.model = new Main_model();
     }
+    //we run the game
     public void run_game(){
-
+        // a queue of the question
         queue_question q=new queue_question();
+        // open the view
         View v = new View();
         v.openWindow(this,q);
+
         Qusetion_Map my_question = Qusetion_Map.getInstance();
         Random rand = new Random();
 
@@ -23,6 +30,7 @@ public class controller {
             if (q.sizel()==100){
                 continue;
             }
+            //pick a random qusetion
             int db_q = rand.nextInt(my_question.get_size());
             //db_q = 1;
             Question_Answer q_a=model.get_question(db_q);
