@@ -47,6 +47,8 @@ public class Game extends JFrame {
                 this.setVisible(false);
                 Problem p=new Problem();
                 p.setVisible(true);
+                controller.set_exit();
+                return;
             }
         }
         timeLabel.setBackground(color);

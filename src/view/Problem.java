@@ -38,8 +38,6 @@ public class Problem extends JFrame {
         contentPane.setLayout(null);
 
 
-
-
         JButton exitGame = new JButton("exit game");
         //Color color1 = new Color(146,45,18);
         //Color color1 = new Color(146, 45, 18);
@@ -78,8 +76,8 @@ public class Problem extends JFrame {
         contentPane.add(messageLabel);
 
 
-
     }
+
 
 }
 
