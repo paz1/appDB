@@ -73,7 +73,7 @@ public class Main_model {
     }
 
     public Main_model(){
-        this.passwd = "re12ut345";
+        this.passwd = "re12ut34";
         this.user="root";
         this.schema="data";
         db = new JDBC(user,passwd,"3306",schema);

@@ -59,7 +59,6 @@ public class JDBC {
         String url = "jdbc:mysql://localhost:"+this.port+"/"+this.schema_name;
 
 
-        System.out.println(url);
         try{
             this.conn = DriverManager.getConnection(url,this.user_name, this.password);
             this.connect = true;
