@@ -11,12 +11,15 @@ public class controller {
     private Main_model model;
     private Boolean exit;
     private Boolean err;
+    private Boolean problem_while;
 
     public controller(){
 
         this.model = new Main_model();
         this.exit = false;
         this.err = false;
+        this.problem_while = false;
+
     }
 
     /**
@@ -54,8 +57,8 @@ public class controller {
             }
             int db_q = rand.nextInt(my_question.get_size());
             Question_Answer q_a=model.get_question(db_q);
-            if (q_a.getQuestion()=="problem_sql"){
-                System.out.println("k");
+            if (q_a.get_q().equals("problem_sql")){
+                this.problem_while = true;
             }
             if(q_a==null){
                 continue;
@@ -65,6 +68,10 @@ public class controller {
             q.add_to_list(q_a);
 
         }
+    }
+
+    public Boolean getProblem_while() {
+        return problem_while;
     }
 
     public Boolean check_err(){

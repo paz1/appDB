@@ -22,7 +22,9 @@ public class Question_Answer {
         this.good_to_know = good;
     }
 
-
+    public String get_q(){
+        return this.question;
+    }
     public String getGood_to_know() {
         return filterQue(good_to_know);
     }
