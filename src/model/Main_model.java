@@ -18,6 +18,7 @@ public class Main_model {
     private int level=1;
     private int flag=0;
     private int initialCount=11;
+    private Make_Info qq;
 
     public void initGame(){
         life=3;
@@ -67,20 +68,25 @@ public class Main_model {
             level=1;
         }
     }
+    public Boolean conn(){
+        return db.connection();
+    }
 
     public Main_model(){
         this.passwd = "re12ut34";
         this.user="root";
         this.schema="data";
         db = new JDBC(user,passwd,"3306",schema);
+        qq = new Make_Info();
         db.connection();
 
     }
     public Question_Answer get_question(Integer db_q){
         ArrayList<ArrayList<String>> temp = db.get_ans(db_q);
-        //db.get_info_from_db();
-        Make_Info qq = new Make_Info();
-        Question_Answer a = qq.get_The_Info(db_q,temp);
+        Question_Answer a = this.qq.get_The_Info(db_q,temp);
         return a;
+    }
+    public void exit(){
+        this.db.close_conn();
     }
 }

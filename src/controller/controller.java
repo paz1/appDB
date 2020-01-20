@@ -7,18 +7,24 @@ import java.util.Random;
 
 public class controller {
 
-    Main_model model;
+    private Main_model model;
+    private Boolean exit;
+
     public controller(){
+
         this.model = new Main_model();
+        this.exit = false;
     }
 
     /**
      * the contrioller responsible for all the abstract logic
      */
     public void run_game(){
+        View v = new View();
+        Boolean conn_work = this.model.conn();
+
 
         queue_question q=new queue_question();
-        View v = new View();
         Qusetion_Map my_question = Qusetion_Map.getInstance();
         Random rand = new Random();
         for (int i=0;i<5;i++){
@@ -28,9 +34,10 @@ public class controller {
         }
         v.openWindow(this,q);
 
-
-
         while (true){
+            if (this.exit){
+                this.model.exit();
+            }
             if (q.sizel()==100){
                 continue;
             }
@@ -44,6 +51,9 @@ public class controller {
             q.add_to_list(q_a);
 
         }
+    }
+    public void set_exit(){
+        this.exit = true;
     }
     public void initGame(){
         model.initGame();
