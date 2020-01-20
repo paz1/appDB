@@ -43,9 +43,16 @@ public class controller {
         for (int i=0;i<5;i++){
             int db_q = rand.nextInt(my_question.get_size());
             Question_Answer q_a=model.get_question(db_q);
+            if(q_a==null){
+                i--;
+                continue;
+            }
+
             q.add_to_list(q_a);
+
+
         }
-        v.openWindow(this,q);
+        //v.openWindow(this,q);
 
         while (true){
             if (this.exit){
@@ -56,13 +63,18 @@ public class controller {
                 continue;
             }
             int db_q = rand.nextInt(my_question.get_size());
+            //db_q = 4;
             Question_Answer q_a=model.get_question(db_q);
-            if (q_a.get_q().equals("problem_sql")){
-                this.problem_while = true;
-            }
+
+
             if(q_a==null){
                 continue;
             }
+            if (q_a.get_q().equals("problem_sql")){
+                this.problem_while = true;
+
+            }
+
 
 
             q.add_to_list(q_a);

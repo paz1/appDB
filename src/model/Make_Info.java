@@ -18,6 +18,7 @@ public class Make_Info {
         this.map_question.put(4, new MyParser() {
             @Override
             public Question_Answer Parse( ArrayList<ArrayList<String>> lines) {
+
                 int size_of_lines = lines.size();
                 if (size_of_lines<2)
                 {
