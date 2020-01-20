@@ -1,6 +1,7 @@
 package controller;
 
 import model.*;
+import view.Problem;
 import view.View;
 
 import java.util.Random;
@@ -26,7 +27,11 @@ public class controller {
         Boolean conn_work = this.model.conn();
         if(!conn_work){
             this.err = true;
+            System.out.println("conn didnt work");
+            v.problem();
+
         }
+
 
         queue_question q=new queue_question();
         Qusetion_Map my_question = Qusetion_Map.getInstance();

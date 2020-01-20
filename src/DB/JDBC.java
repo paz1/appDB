@@ -18,6 +18,7 @@ public class JDBC {
     private String schema_name;
     private boolean connect;
     private Map<Integer, String> map_question = new HashMap<Integer, String>();
+    private Boolean problem_with_data;
 
 
     //constractor
