@@ -57,9 +57,9 @@ public class Problem extends JDialog {
         exitGame.setBackground(color1);
         exitGame.setForeground(Color.WHITE);
         exitGame.setFont(new Font("Tahoma", Font.BOLD, height / 15));
-        exitGame.setBorder(new MatteBorder(2, 2, 2, 2, (Color) color.PINK));
+        exitGame.setBorder(new MatteBorder(2, 2, 2, 2, (Color) color.RED));
         exitGame.setSize(new Dimension(height / 2, height / 2-65));
-        exitGame.setLocation((height / 6)+30, (width / 6)-30);
+        exitGame.setLocation((height / 3)+30, (width / 3)-30);
         exitGame.setFocusPainted(false);
         exitGame.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
