@@ -94,7 +94,7 @@ public class MainWindow extends JFrame {
 	 */
 	public MainWindow(controller controller,queue_question queue_question) {
 		super("quicky");
-		c=controller;
+		this.c=controller;
 		setBackground(color);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		int width = General.width;
@@ -146,11 +146,24 @@ public class MainWindow extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				//Component component = (Component) arg0.getSource();
 				setVisible(false);
-				g = new Game(c,queue_question,11);
+				Problem p =new Problem();
+				//Waiting w=new Waiting();
+				//check c=new check();
+				//w.setVisible(true);
+				//c.setVisible(true);
+				//p.setVisible(true);
+				while (queue_question.empty()){
+					Waiting w=new Waiting();
+					w.setVisible(true);
+
+				}
+				g = new Game(controller,queue_question,11);
 				g.setVisible(true);
 				g.runGame();
+
 			}
 		});
+
 		contentPane.add(btnCreateAnAccount);
 //		JButton btnSignIn = new JButton("Sign in");
 //		Color color1 = new Color(146,45,18);
