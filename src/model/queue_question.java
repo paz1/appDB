@@ -1,6 +1,6 @@
 package model;
 
-import com.sun.xml.internal.ws.util.StringUtils;
+
 import model.Question_Answer;
 
 import java.util.ArrayList;
@@ -19,6 +19,12 @@ public class queue_question {
         }else {
             this.my_list.add(q);
         }
+    }
+    public boolean empty(){
+        if(my_list.size()==0){
+            return true;
+        }
+        return false;
     }
     public Question_Answer getQ(){
         Question_Answer qq;

@@ -43,9 +43,11 @@ public class Game extends JFrame {
         contentPane.setBackground(color);
         //if problem happend
         if(controller.getProblem_while()){
-            this.setVisible(false);
-            Problem p=new Problem();
-            p.setVisible(true);
+            if(queue_question.empty()){
+                this.setVisible(false);
+                Problem p=new Problem();
+                p.setVisible(true);
+            }
         }
         timeLabel.setBackground(color);
         timeLabel.setForeground(Color.WHITE);
