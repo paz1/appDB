@@ -138,6 +138,7 @@ public class JDBC {
      * @return a boolean if it seccssed or not
      */
     public boolean close_conn(){
+        System.out.println("conn close");
         if (this.connect){
             try {
                 conn.close();

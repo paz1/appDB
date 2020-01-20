@@ -52,9 +52,11 @@ public class controller {
 
 
         }
-        //v.openWindow(this,q);
+        v.openWindow(this,q);
 
         while (true){
+
+            System.out.println(q.sizel());
             if (this.exit){
                 this.model.exit();
                 return;
@@ -62,16 +64,15 @@ public class controller {
             if (q.sizel()==100){
                 continue;
             }
+
             int db_q = rand.nextInt(my_question.get_size());
-            //db_q = 4;
             Question_Answer q_a=model.get_question(db_q);
-
-
             if(q_a==null){
                 continue;
             }
             if (q_a.get_q().equals("problem_sql")){
                 this.problem_while = true;
+                break;
 
             }
 
@@ -80,15 +81,18 @@ public class controller {
             q.add_to_list(q_a);
 
         }
+
+        this.model.exit();
+        while (!this.exit){
+
+            int gg = 100;
+        }
     }
 
     public Boolean getProblem_while() {
         return problem_while;
     }
 
-    public Boolean check_err(){
-        return this.err;
-    }
     public void set_exit(){
         this.exit = true;
     }
