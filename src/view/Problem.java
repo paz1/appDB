@@ -44,12 +44,30 @@ public class Problem extends JDialog {
         messageLabel.setFont(new Font("Comic Sans MS", Font.BOLD, height / 10));
 
         messageLabel.setBorder(new MatteBorder(2, 2, 2, 2,color));
-        messageLabel.setSize(new Dimension(width , height / 2));
+        messageLabel.setSize(new Dimension(width , height / 3));
         messageLabel.setLocation(0, width / 3+2);
         //messageLabel.setHorizontalAlignment(SwingConstants.CENTER);
         //messageLabel.setVerticalAlignment(SwingConstants.CENTER);
         messageLabel.setHorizontalAlignment(JLabel.CENTER);
         contentPane.add(messageLabel);
+
+        JButton exitGame = new JButton("exit game");
+        //Color color1 = new Color(146,45,18);
+        //Color color1 = new Color(146, 45, 18);
+        exitGame.setBackground(color1);
+        exitGame.setForeground(Color.WHITE);
+        exitGame.setFont(new Font("Tahoma", Font.BOLD, height / 15));
+        exitGame.setBorder(new MatteBorder(2, 2, 2, 2, (Color) color.PINK));
+        exitGame.setSize(new Dimension(height / 2, height / 2-65));
+        exitGame.setLocation((height / 6)+30, (width / 6)-30);
+        exitGame.setFocusPainted(false);
+        exitGame.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+                setVisible(false);
+                exit(0);
+
+            }
+        });
 }
 
 }
