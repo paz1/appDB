@@ -20,7 +20,7 @@ import java.awt.*;
 
 public class Problem extends JDialog {
     Color color = new Color(178,132 ,190);
-    public Problem(controller c,Frame owner, boolean modal) {
+    public Problem(Frame owner, boolean modal) {
         super(owner, modal);
         setBackground(color);
         //int width = General.screenWidth / 3;
@@ -44,7 +44,7 @@ public class Problem extends JDialog {
         messageLabel.setFont(new Font("Comic Sans MS", Font.BOLD, height / 10));
 
         messageLabel.setBorder(new MatteBorder(2, 2, 2, 2,color));
-        messageLabel.setSize(new Dimension(width , height / 3-20));
+        messageLabel.setSize(new Dimension(width , height / 2));
         messageLabel.setLocation(0, width / 3+2);
         //messageLabel.setHorizontalAlignment(SwingConstants.CENTER);
         //messageLabel.setVerticalAlignment(SwingConstants.CENTER);

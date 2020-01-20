@@ -50,6 +50,13 @@ public class Game extends JFrame {
         timeLabel.setHorizontalAlignment(SwingConstants.CENTER);
         timeLabel.setVerticalAlignment(SwingConstants.CENTER);
         contentPane.add(timeLabel);
+        if (controller.check_err()){
+            //Component component = (Component) arg0.getSource();
+            //JFrame frame = (JFrame) SwingUtilities.getRoot(component);
+            JFrame frame = new JFrame();
+            Problem p=new Problem(frame, true);
+            p.setVisible(true);
+        }
 
         TimerTask timerTask = new TimerTask() {
 
@@ -149,13 +156,6 @@ public class Game extends JFrame {
         choose1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 timer.cancel();
-                if (controller.check_err()){
-                    Component component = (Component) arg0.getSource();
-                    JFrame frame = (JFrame) SwingUtilities.getRoot(component);
-                    Problem p=new Problem(controller,frame, true);
-                    p.setVisible(true);
-                }
-
 
                 if (isCorrect(1, truth)) {
                     controller.correct();
