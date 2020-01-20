@@ -30,7 +30,7 @@ public class controller {
         Boolean conn_work = this.model.conn();
         if(!conn_work){
             this.err = true;
-            System.out.println("conn didnt work");
+//            System.out.println("conn didnt work");
             v.problem();
             return;
 
@@ -56,7 +56,7 @@ public class controller {
 
         while (true){
 
-            System.out.println(q.sizel());
+            //System.out.println(q.sizel());
             if (this.exit){
                 this.model.exit();
                 return;

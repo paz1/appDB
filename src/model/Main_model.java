@@ -49,7 +49,7 @@ public class Main_model {
 //            flag=0;
             if(initialCount>4) {
                 initialCount = initialCount - 1;
-                System.out.print(initialCount);
+//                System.out.print(initialCount);
             }
 //            level++;
 
