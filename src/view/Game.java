@@ -149,6 +149,14 @@ public class Game extends JFrame {
         choose1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 timer.cancel();
+                if (controller.check_err()){
+                    Component component = (Component) arg0.getSource();
+                    JFrame frame = (JFrame) SwingUtilities.getRoot(component);
+                    Problem p=new Problem(controller,frame, true);
+                    p.setVisible(true);
+                }
+
+
                 if (isCorrect(1, truth)) {
                     controller.correct();
                     count = controller.getInitialCount();
