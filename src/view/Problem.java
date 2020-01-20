@@ -43,7 +43,8 @@ public class Problem extends JFrame {
         JButton exitGame = new JButton("exit game");
         //Color color1 = new Color(146,45,18);
         //Color color1 = new Color(146, 45, 18);
-        exitGame.setBackground(Color.RED);
+        Color color1 = new Color(146, 45, 18);
+        exitGame.setBackground(color1);
         exitGame.setForeground(Color.BLACK);
         exitGame.setFont(new Font("Comic Sans MS", Font.BOLD, height / 12));
         exitGame.setBorder(new MatteBorder(2, 2, 2, 2, (Color) color.BLACK));
@@ -62,11 +63,10 @@ public class Problem extends JFrame {
         contentPane.add(exitGame);
 
 
-        String massage="connection error.";
+        String massage="connection error!";
         String massage2="please try again later!!";
         JLabel messageLabel = new JLabel("<html><div style='text-align: center;'>"+massage+"<br>"+massage2+"</html>");
         messageLabel.setBackground(color);
-        Color color1 = new Color(146, 45, 18);
         messageLabel.setForeground(color.BLACK);
         messageLabel.setFont(new Font("Comic Sans MS", Font.BOLD, height / 10));
         messageLabel.setBorder(new MatteBorder(2, 2, 2, 2,color));
