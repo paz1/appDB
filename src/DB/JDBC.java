@@ -107,18 +107,18 @@ public class JDBC {
                     for(int j = 1;j<=columnsNumber;j++){
 
                         mini_list.add(rs.getString(j));
-                        System.out.print(rs.getString(j));
-                        System.out.print("                   ");
+//                        System.out.print(rs.getString(j));
+//                        System.out.print("                   ");
 
 
                     }
                     i++;
-                    System.out.println("");
+//                    System.out.println("");
                     listOLists.add(mini_list);
 
                 }
 
-                System.out.println(i);
+                //System.out.println(i);
                 return listOLists;
 
             } catch (SQLException e) {

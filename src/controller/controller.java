@@ -9,11 +9,13 @@ public class controller {
 
     private Main_model model;
     private Boolean exit;
+    private Boolean err;
 
     public controller(){
 
         this.model = new Main_model();
         this.exit = false;
+        this.err = false;
     }
 
     /**
@@ -22,7 +24,9 @@ public class controller {
     public void run_game(){
         View v = new View();
         Boolean conn_work = this.model.conn();
-
+        if(!conn_work){
+            this.err = true;
+        }
 
         queue_question q=new queue_question();
         Qusetion_Map my_question = Qusetion_Map.getInstance();
@@ -37,6 +41,7 @@ public class controller {
         while (true){
             if (this.exit){
                 this.model.exit();
+                return;
             }
             if (q.sizel()==100){
                 continue;
@@ -51,6 +56,10 @@ public class controller {
             q.add_to_list(q_a);
 
         }
+    }
+
+    public Boolean check_err(){
+        return this.err;
     }
     public void set_exit(){
         this.exit = true;

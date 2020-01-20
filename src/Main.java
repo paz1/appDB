@@ -15,5 +15,6 @@ public class Main {
 
         controller a = new controller();
         a.run_game();
+        System.out.println("end");
     }
 }
