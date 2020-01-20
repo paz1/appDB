@@ -83,6 +83,10 @@ public class Main_model {
     }
     public Question_Answer get_question(Integer db_q){
         ArrayList<ArrayList<String>> temp = db.get_ans(db_q);
+        if(temp==null){
+            Question_Answer n= new Question_Answer("problem_sql","","","");
+            return n;
+        }
         Question_Answer a = this.qq.get_The_Info(db_q,temp);
         return a;
     }

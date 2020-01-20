@@ -29,6 +29,7 @@ public class controller {
             this.err = true;
             System.out.println("conn didnt work");
             v.problem();
+            return;
 
         }
 
@@ -53,6 +54,9 @@ public class controller {
             }
             int db_q = rand.nextInt(my_question.get_size());
             Question_Answer q_a=model.get_question(db_q);
+            if (q_a.getQuestion()=="problem_sql"){
+                System.out.println("k");
+            }
             if(q_a==null){
                 continue;
             }
