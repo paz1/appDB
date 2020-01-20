@@ -29,9 +29,10 @@ public class View {
 
 
     public void  problem(){
-        JFrame frame = new JFrame();
-        Problem p=new Problem(frame, true);
+
+        Problem p=new Problem();
         p.setVisible(true);
+
 
 //        if (controller.check_err()){
 //            //Component component = (Component) arg0.getSource();
