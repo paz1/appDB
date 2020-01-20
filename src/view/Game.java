@@ -42,15 +42,15 @@ public class Game extends JFrame {
         contentPane = new JPanel();
         contentPane.setBackground(color);
         //if problem happend
-        if(controller.getProblem_while()){
-            if(queue_question.empty()){
-                this.setVisible(false);
-                Problem p=new Problem();
-                p.setVisible(true);
-                controller.set_exit();
-                return;
-            }
-        }
+//        if(controller.getProblem_while()){
+//            if(queue_question.empty()){
+//                this.setVisible(false);
+//                Problem p=new Problem();
+//                p.setVisible(true);
+//                controller.set_exit();
+//                return;
+//            }
+//        }
         timeLabel.setBackground(color);
         timeLabel.setForeground(Color.WHITE);
         timeLabel.setFont(new Font(font, Font.BOLD, height / 20));
@@ -273,6 +273,16 @@ public class Game extends JFrame {
         int width = General.width;
         int height = General.height;
 
+
+        if(controller.getProblem_while()){
+            if(this.questions.empty()){
+                this.setVisible(false);
+                Problem p=new Problem();
+                p.setVisible(true);
+                controller.set_exit();
+                return;
+            }
+        }
 
         addLivesLabel(height);
         addScoreLabel(height);
