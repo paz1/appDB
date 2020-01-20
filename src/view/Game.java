@@ -41,7 +41,12 @@ public class Game extends JFrame {
         setBounds((General.screenWidth - General.width) / 2, (General.screenHeight - General.height) / 2, width, height);
         contentPane = new JPanel();
         contentPane.setBackground(color);
-
+        //if problem happend
+        if(controller.getProblem_while()){
+            this.setVisible(false);
+            Problem p=new Problem();
+            p.setVisible(true);
+        }
         timeLabel.setBackground(color);
         timeLabel.setForeground(Color.WHITE);
         timeLabel.setFont(new Font(font, Font.BOLD, height / 20));
@@ -286,6 +291,7 @@ public class Game extends JFrame {
         addHint(q,height);
         repaint();
     }
+
 
     public boolean isCorrect(int choose, int answer) {
         return (choose == answer);
