@@ -64,7 +64,7 @@ public class JDBC {
             this.connect = true;
             return true;
         }catch (SQLException e){
-            System.out.println(e);
+            //System.out.println(e);
             return false;
         }
 
@@ -138,12 +138,13 @@ public class JDBC {
      * @return a boolean if it seccssed or not
      */
     public boolean close_conn(){
+//        System.out.println("conn close");
         if (this.connect){
             try {
                 conn.close();
                 return true;
             } catch (SQLException e) {
-                System.out.println("error close");
+//                System.out.println("error close");
                 e.printStackTrace();
             }
         }
