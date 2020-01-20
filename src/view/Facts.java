@@ -17,8 +17,10 @@ import model.Question_Answer;
 
 public class Facts extends JDialog{
     Color color = new Color(178,132 ,190);
+    private controller c;
     public Facts(controller c,Frame owner, boolean modal, int score, queue_question q,Question_Answer qu) {
         super(owner, modal);
+        this.c=c;
         setBackground(color);
         //int width = General.screenWidth / 3;
         //int height = General.screenHeight / 2;
@@ -63,8 +65,10 @@ public class Facts extends JDialog{
         exitGame.setFocusPainted(false);
         exitGame.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
+                to_controlller();
                 setVisible(false);
                 exit(0);
+
             }
         });
         JButton menuButton = new JButton("back to menu");
@@ -114,4 +118,8 @@ public class Facts extends JDialog{
 
 
     }
+    public void to_controlller(){
+        this.c.set_exit();
+    }
+
 }
