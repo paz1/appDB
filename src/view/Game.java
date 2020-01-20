@@ -13,6 +13,8 @@ import java.awt.event.ActionListener;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
+
 
 public class Game extends JFrame {
     Color color = new Color(93,138,168);
@@ -282,6 +284,27 @@ public class Game extends JFrame {
                 controller.set_exit();
                 return;
             }
+        }
+        if(questions.empty()) {
+            Waiting w = new Waiting();
+            setVisible(false);
+            w.setVisible(true);
+
+            try
+            {
+                Thread.sleep(2500);
+            }
+            catch(InterruptedException ex)
+            {
+                Thread.currentThread().interrupt();
+            }
+            Game g = new Game(controller, questions,initialCount);
+//                g.setQ(questions);
+            g.setVisible(true);
+            w.setVisible(false);
+            g.runGame();
+
+
         }
 
         addLivesLabel(height);
