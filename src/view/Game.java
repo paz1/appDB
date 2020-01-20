@@ -44,15 +44,15 @@ public class Game extends JFrame {
         contentPane = new JPanel();
         contentPane.setBackground(color);
         //if problem happend
-//        if(controller.getProblem_while()){
-//            if(queue_question.empty()){
-//                this.setVisible(false);
-//                Problem p=new Problem();
-//                p.setVisible(true);
-//                controller.set_exit();
-//                return;
-//            }
-//        }
+        if(controller.getProblem_while()){
+            if(queue_question.empty()){
+                this.setVisible(false);
+                Problem p=new Problem();
+                p.setVisible(true);
+                controller.set_exit();
+                return;
+            }
+        }
         timeLabel.setBackground(color);
         timeLabel.setForeground(Color.WHITE);
         timeLabel.setFont(new Font(font, Font.BOLD, height / 20));
@@ -144,6 +144,24 @@ public class Game extends JFrame {
         messageLabel.setHorizontalAlignment(SwingConstants.CENTER);
         messageLabel.setVerticalAlignment(SwingConstants.CENTER);
         contentPane.add(messageLabel);
+    }
+
+    public JLabel addError(int height,int width){
+        JLabel messageLabel = new JLabel("wait for connection");
+        messageLabel.setBackground(color);
+        messageLabel.setForeground(Color.RED);
+        messageLabel.setFont(new Font(font, Font.BOLD, height / 20));
+        //messageLabel.setSize(new Dimension(height / 2, height / 3));
+        //messageLabel.setLocation(width / 2-15, width / 18-30);
+        //messageLabel.setBounds(2, 5, width + 120, height - 320);
+        messageLabel.setFont(new Font(font, Font.BOLD, height / 20));
+        messageLabel.setSize(new Dimension(height / 2, height / 3 ));
+        messageLabel.setLocation(10, height / 2-50);
+        messageLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        messageLabel.setVerticalAlignment(SwingConstants.CENTER);
+        messageLabel.setVisible(false);
+        contentPane.add(messageLabel);
+        return messageLabel;
     }
     public void addLeftAns(String leftOpt,int height,int width,int truth){
         Question_Answer q=question_answer;
@@ -285,33 +303,61 @@ public class Game extends JFrame {
                 return;
             }
         }
-        if(questions.empty()) {
-            Waiting w = new Waiting();
-            setVisible(false);
-            w.setVisible(true);
-
-            try
-            {
-                Thread.sleep(2500);
-            }
-            catch(InterruptedException ex)
-            {
-                Thread.currentThread().interrupt();
-            }
-            Game g = new Game(controller, questions,initialCount);
-//                g.setQ(questions);
-            g.setVisible(true);
-            w.setVisible(false);
-            g.runGame();
-
-
-        }
+//        if(questions.empty()) {
+//            Waiting w = new Waiting();
+//            setVisible(false);
+//            w.setVisible(true);
+//
+//            try
+//            {
+//                Thread.sleep(2500);
+//            }
+//            catch(InterruptedException ex)
+//            {
+//                Thread.currentThread().interrupt();
+//            }
+//            Game g = new Game(controller, questions,initialCount);
+////                g.setQ(questions);
+//            g.setVisible(true);
+//            w.setVisible(false);
+//            g.runGame();
+//
+//
+//        }
 
         addLivesLabel(height);
         addScoreLabel(height);
         addLevelLabel(height,width);
+        //JLabel error=addError(height,width);
         //get question and answers
+        //Waiting w=null;
         Question_Answer q = questions.getQ();
+//        if(q==null){
+//
+//            //w = new Waiting();
+//            //setVisible(false);
+//            //w.setVisible(true);
+//            q = questions.getQ();
+//            error.setVisible(true);
+//
+//        }
+//        while(q==null){
+//
+//            //w = new Waiting();
+//            //w.setVisible(true);
+////            setVisible(false);
+//            q = questions.getQ();
+//        }
+//        error.setVisible(false);
+
+//        if(w!=null) {
+//            w.setVisible(false);
+//
+//        }
+        //w.setVisible(false);
+        //count = initialCount;
+        //setVisible(true);
+
         question_answer=q;
         Random rand = new Random();
         int truth = rand.nextInt(2) + 1;

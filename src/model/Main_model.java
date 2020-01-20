@@ -73,6 +73,9 @@ public class Main_model {
     }
 
     public Main_model(){
+//        this.passwd = "re12ut34";
+//        this.user="root";
+//        this.schema="data";
         this.passwd = "re12ut34";
         this.user="root";
         this.schema="data";

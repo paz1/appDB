@@ -29,6 +29,11 @@ public class queue_question {
     public Question_Answer getQ(){
         Question_Answer qq;
         while (true){
+            if(this.sizel()==0){
+                System.out.println("len0");
+                return null;
+            }
+
             qq =  this.my_list.get(0);
             this.my_list.remove(0);
             if (qq.getLength_ans_co()<=5&&qq.getLength_ans_wr()<=5&&linesNum(qq.getQuestion())<=2){

@@ -152,11 +152,11 @@ public class MainWindow extends JFrame {
 				//w.setVisible(true);
 				//c.setVisible(true);
 				//p.setVisible(true);
-				while (queue_question.empty()){
-					Waiting w=new Waiting();
-					w.setVisible(true);
-
-				}
+//				while (queue_question.empty()){
+//					Waiting w=new Waiting();
+//					w.setVisible(true);
+//
+//				}
 				g = new Game(controller,queue_question,11);
 				g.setVisible(true);
 				g.runGame();
