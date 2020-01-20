@@ -50,13 +50,7 @@ public class Game extends JFrame {
         timeLabel.setHorizontalAlignment(SwingConstants.CENTER);
         timeLabel.setVerticalAlignment(SwingConstants.CENTER);
         contentPane.add(timeLabel);
-        if (controller.check_err()){
-            //Component component = (Component) arg0.getSource();
-            //JFrame frame = (JFrame) SwingUtilities.getRoot(component);
-            JFrame frame = new JFrame();
-            Problem p=new Problem(frame, true);
-            p.setVisible(true);
-        }
+
 
         TimerTask timerTask = new TimerTask() {
 
