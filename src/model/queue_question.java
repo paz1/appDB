@@ -38,6 +38,7 @@ public class queue_question {
         Question_Answer qq;
         while (true){
             if(this.sizel()==0){
+                //delete before submit
                 List<Question_Answer> proList  =new ArrayList<>();
                 proList.add(new Question_Answer("In which year was the song \"How Does It Feel\" released?","2004","2007","The song \"Innocence\" was released in 2007"));
                 proList.add(new Question_Answer("Which singer has more songs?","Keb' Mo","Bruce Carroll","Keb' Mo has 6 songs"));
@@ -55,15 +56,6 @@ public class queue_question {
                     this.flag=0;
 
                 Question_Answer c =proList.get(flag);
-                System.out.println(c.get_q());
-                System.out.println("  ");
-                System.out.println(c.get_a_c());
-                System.out.println("  ");
-                System.out.println(c.get_a_w());
-                System.out.println("   ");
-                System.out.println(c.get_g());
-
-                System.out.println("**********************************************************");
                 return c;
 
             }

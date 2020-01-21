@@ -76,9 +76,9 @@ public class Main_model {
 //        this.passwd = "re12ut34";
 //        this.user="root";
 //        this.schema="data";
-        this.passwd = "re12ut34";
-        this.user="root";
-        this.schema="data";
+        this.passwd = "1gr1";
+        this.user="team07";
+        this.schema="db07";
         db = new JDBC(user,passwd,"3306",schema);
         qq = new Make_Info();
         db.connection();
