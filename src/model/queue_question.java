@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class queue_question {
     private List<Question_Answer> my_list  =new ArrayList<>();
-    private Boolean flag = true;
+    private Integer flag = 0;
 
     public void add_to_list(Question_Answer q){
         if(my_list.size()==1000){
@@ -48,20 +48,23 @@ public class queue_question {
                 proList.add(new Question_Answer("Which singer has more songs?","Yami Bolo","Alex Fong","\"Yami Bolo\" has 3 songs"));
                 proList.add(new Question_Answer("who sings the song:  \"I'm Back\"?","Eminem","Michael Jackson","\"Michael Jackson\" sings \"I Wanna Be Where You Are\""));proList.add(new Question_Answer("In which year was the song \"Trading Places\" released?","2008","2000","The song \"Mother's Luv\" was released in 2000"));
                 proList.add(new Question_Answer("Which singer has more songs?","Rockit","Pascal Lejeune","\"Rockit\" has 2 songs"));
-                int conter=0;
-                for (int i = 0; i < ((proList.size())*10); i++){
-                    conter=conter+1;
-                    if (conter==10)
-                        conter=0;
-                    return proList.get(conter);
-                }
-//                    //delete before the submit
-//                if (this.flag){
-//                    this.flag=false;
-//                    return new Question_Answer("In which year was the song \"How Does It Feel\" released?","2004","2007","The song \"Innocence\" was released in 2007");
-//                }
-//                this.flag=true;
-//                return new Question_Answer("Which singer has more songs?","Keb' Mo","Bruce Carroll","Keb' Mo has 6 songs");
+
+
+                this.flag=flag+1;
+                if (flag==10)
+                    this.flag=0;
+
+                Question_Answer c =proList.get(flag);
+                System.out.println(c.get_q());
+                System.out.println("  ");
+                System.out.println(c.get_a_c());
+                System.out.println("  ");
+                System.out.println(c.get_a_w());
+                System.out.println("   ");
+                System.out.println(c.get_g());
+
+                System.out.println("**********************************************************");
+                return c;
 
             }
 
@@ -76,6 +79,7 @@ public class queue_question {
 
 
         }
+
         return qq;
     }
     public Integer sizel(){

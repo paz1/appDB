@@ -24,6 +24,10 @@ public class Question_Answer {
     public String get_q() {
         return this.question;
     }
+    public String get_a_c(){ return this.correct_ans;}
+    public String get_a_w(){ return this.wrong_ans;}
+    public String get_g(){ return this.good_to_know;}
+
 
     public String getGood_to_know() {
         return filterFact(good_to_know);
