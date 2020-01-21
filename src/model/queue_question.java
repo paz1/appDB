@@ -44,10 +44,9 @@ public class queue_question {
                 proList.add(new Question_Answer("In which year was the song \"Paul\" released?","1999","2000","The song \"The Way I Am\" was released in 2000"));
                 proList.add(new Question_Answer("who sings the song: \"The Way I Am\"?","Eminem","Kanye West","\"Kanye West\" sings \"Heard 'Em Say\""));
                 proList.add(new Question_Answer("who sings the song:  \"When You Were Young\"?","The Killers","Bruce Carroll", "\"Britney Spears\" sings \"My Prerogative\""));
-                proList.add(new Question_Answer("who sings the song:  \"I'm Back\"?","Eminem","Michael Jackson","\"Michael Jackson\" sings \"I Wanna Be Where You Are\""));
                 proList.add(new Question_Answer("Which album does the song \"Liar in the Glass\" belong to?","Reach","Bright Like Neon Love","The song \"Future\" belongs to the \"Bright Like Neon Love\" album"));
                 proList.add(new Question_Answer("Which singer has more songs?","Yami Bolo","Alex Fong","\"Yami Bolo\" has 3 songs"));
-                proList.add(new Question_Answer("In which year was the song \"Trading Places\" released?","2008","2000","The song \"Mother's Luv\" was released in 2000"));
+                proList.add(new Question_Answer("who sings the song:  \"I'm Back\"?","Eminem","Michael Jackson","\"Michael Jackson\" sings \"I Wanna Be Where You Are\""));proList.add(new Question_Answer("In which year was the song \"Trading Places\" released?","2008","2000","The song \"Mother's Luv\" was released in 2000"));
                 proList.add(new Question_Answer("Which singer has more songs?","Rockit","Pascal Lejeune","\"Rockit\" has 2 songs"));
                 int conter=0;
                 for (int i = 0; i < ((proList.size())*10); i++){
@@ -55,7 +54,6 @@ public class queue_question {
                     if (conter==10)
                         conter=0;
                     return proList.get(conter);
-
                 }
 //                    //delete before the submit
 //                if (this.flag){
