@@ -41,7 +41,7 @@ public class controller {
         Qusetion_Map my_question = Qusetion_Map.getInstance();
         Random rand = new Random();
 
-        for (int i=0;i<5;i++){
+        for (int i=0;i<20;i++){
             int db_q = rand.nextInt(my_question.get_size());
             Question_Answer q_a=model.get_question(db_q);
             if(q_a==null){

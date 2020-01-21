@@ -12,9 +12,10 @@ import java.util.List;
  */
 public class queue_question {
     private List<Question_Answer> my_list  =new ArrayList<>();
+    private Boolean flag = true;
 
     public void add_to_list(Question_Answer q){
-        if(my_list.size()==100){
+        if(my_list.size()==1000){
             return;
         }else {
             this.my_list.add(q);
@@ -30,8 +31,15 @@ public class queue_question {
         Question_Answer qq;
         while (true){
             if(this.sizel()==0){
-                System.out.println("len0");
-                return null;
+
+                //delete before the submit
+                if (this.flag){
+                    this.flag=false;
+                    return new Question_Answer("In which year was the song \"How Does It Feel\" released?","2004","2007","The song \"Innocence\" was released in 2007");
+                }
+                this.flag=true;
+                return new Question_Answer("Which singer has more songs?","Keb' Mo","Bruce Carroll","Keb' Mo has 6 songs");
+
             }
 
             qq =  this.my_list.get(0);

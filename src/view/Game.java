@@ -146,23 +146,23 @@ public class Game extends JFrame {
         contentPane.add(messageLabel);
     }
 
-    public JLabel addError(int height,int width){
-        JLabel messageLabel = new JLabel("wait for connection");
-        messageLabel.setBackground(color);
-        messageLabel.setForeground(Color.RED);
-        messageLabel.setFont(new Font(font, Font.BOLD, height / 20));
-        //messageLabel.setSize(new Dimension(height / 2, height / 3));
-        //messageLabel.setLocation(width / 2-15, width / 18-30);
-        //messageLabel.setBounds(2, 5, width + 120, height - 320);
-        messageLabel.setFont(new Font(font, Font.BOLD, height / 20));
-        messageLabel.setSize(new Dimension(height / 2, height / 3 ));
-        messageLabel.setLocation(10, height / 2-50);
-        messageLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        messageLabel.setVerticalAlignment(SwingConstants.CENTER);
-        messageLabel.setVisible(false);
-        contentPane.add(messageLabel);
-        return messageLabel;
-    }
+//    public JLabel addError(int height,int width){
+//        JLabel messageLabel = new JLabel("wait for connection");
+//        messageLabel.setBackground(color);
+//        messageLabel.setForeground(Color.RED);
+//        messageLabel.setFont(new Font(font, Font.BOLD, height / 20));
+//        //messageLabel.setSize(new Dimension(height / 2, height / 3));
+//        //messageLabel.setLocation(width / 2-15, width / 18-30);
+//        //messageLabel.setBounds(2, 5, width + 120, height - 320);
+//        messageLabel.setFont(new Font(font, Font.BOLD, height / 20));
+//        messageLabel.setSize(new Dimension(height / 2, height / 3 ));
+//        messageLabel.setLocation(10, height / 2-50);
+//        messageLabel.setHorizontalAlignment(SwingConstants.CENTER);
+//        messageLabel.setVerticalAlignment(SwingConstants.CENTER);
+//        messageLabel.setVisible(false);
+//        contentPane.add(messageLabel);
+//        return messageLabel;
+//    }
     public void addLeftAns(String leftOpt,int height,int width,int truth){
         Question_Answer q=question_answer;
         JButton choose1 = new JButton(leftOpt);
@@ -296,7 +296,7 @@ public class Game extends JFrame {
 
         if(controller.getProblem_while()){
             if(this.questions.empty()){
-                this.setVisible(false);
+                setVisible(false);
                 Problem p=new Problem();
                 p.setVisible(true);
                 controller.set_exit();
@@ -332,16 +332,26 @@ public class Game extends JFrame {
         //get question and answers
         //Waiting w=null;
         Question_Answer q = questions.getQ();
+//        Waiting w=null;
 //        if(q==null){
 //
-//            //w = new Waiting();
-//            //setVisible(false);
-//            //w.setVisible(true);
+//            w = new Waiting();
+//            setVisible(false);
+//            w.setVisible(true);
 //            q = questions.getQ();
-//            error.setVisible(true);
+//            //error.setVisible(true);
 //
 //        }
 //        while(q==null){
+//            q = questions.getQ();
+//            int reut=1;
+//        }
+//        if(w!=null) {
+//            w.setVisible(false);
+//
+//        }
+//        setVisible(true);
+
 //
 //            //w = new Waiting();
 //            //w.setVisible(true);
